@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		950F7EB42162833700618958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950F7EB32162833700618958 /* AppDelegate.swift */; };
-		950F7EB62162833700618958 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950F7EB52162833700618958 /* ViewController.swift */; };
 		950F7EB92162833700618958 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EB72162833700618958 /* Main.storyboard */; };
 		950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 950F7EBA2162833700618958 /* Reciplease.xcdatamodeld */; };
 		950F7EBE2162833900618958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBD2162833900618958 /* Assets.xcassets */; };
 		950F7EC12162833900618958 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBF2162833900618958 /* LaunchScreen.storyboard */; };
-		950F7ECC2162833900618958 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950F7ECB2162833900618958 /* RecipleaseTests.swift */; };
-		9513BF692163A4FD008D4899 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9513BF682163A4FD008D4899 /* SearchService.swift */; };
+		9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */; };
+		9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA22163BC4A0051E7EB /* URLStruct.swift */; };
+		95E0B2492163B1B300749AA5 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0B2482163B1B300749AA5 /* FakeResponseData.swift */; };
+		95E0B24B2163B23500749AA5 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0B24A2163B23500749AA5 /* URLSessionFake.swift */; };
+		95E0B24D2163B26A00749AA5 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 95E0B24C2163B26A00749AA5 /* Recipe.json */; };
+		95E0B24F2163B2BA00749AA5 /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */; };
 		B20E113F6813742DA201B61D /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB038CC63294BF5592154F92 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,16 +36,19 @@
 		373E6AC6B8C26F5DA9D98D2F /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		950F7EB02162833700618958 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		950F7EB32162833700618958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		950F7EB52162833700618958 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		950F7EB82162833700618958 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		950F7EBB2162833700618958 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		950F7EBD2162833900618958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		950F7EC02162833900618958 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		950F7EC22162833900618958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950F7EC72162833900618958 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		950F7ECB2162833900618958 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		950F7ECD2162833900618958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9513BF682163A4FD008D4899 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeService.swift; sourceTree = "<group>"; };
+		9573CAA22163BC4A0051E7EB /* URLStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStruct.swift; sourceTree = "<group>"; };
+		95E0B2482163B1B300749AA5 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		95E0B24A2163B23500749AA5 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		95E0B24C2163B26A00749AA5 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
+		95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 		CB038CC63294BF5592154F92 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,8 +122,8 @@
 		950F7ECA2162833900618958 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				950F7ECB2162833900618958 /* RecipleaseTests.swift */,
 				950F7ECD2162833900618958 /* Info.plist */,
+				95E0B2442163B15A00749AA5 /* Model */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -125,7 +131,8 @@
 		950F7ED62162835A00618958 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9513BF682163A4FD008D4899 /* SearchService.swift */,
+				9573CA9F2163BB190051E7EB /* GetRecipe */,
+				9573CA9E2163BB110051E7EB /* SearchRecipe */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,7 +149,6 @@
 		950F7ED82162836400618958 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				950F7EB52162833700618958 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -150,12 +156,39 @@
 		950F7ED92162838000618958 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9573CAA22163BC4A0051E7EB /* URLStruct.swift */,
 				950F7EB32162833700618958 /* AppDelegate.swift */,
 				950F7EBD2162833900618958 /* Assets.xcassets */,
 				950F7EC22162833900618958 /* Info.plist */,
 				950F7EBA2162833700618958 /* Reciplease.xcdatamodeld */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9573CA9E2163BB110051E7EB /* SearchRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */,
+			);
+			path = SearchRecipe;
+			sourceTree = "<group>";
+		};
+		9573CA9F2163BB190051E7EB /* GetRecipe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GetRecipe;
+			sourceTree = "<group>";
+		};
+		95E0B2442163B15A00749AA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95E0B2482163B1B300749AA5 /* FakeResponseData.swift */,
+				95E0B24A2163B23500749AA5 /* URLSessionFake.swift */,
+				95E0B24C2163B26A00749AA5 /* Recipe.json */,
+				95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +246,7 @@
 					};
 					950F7EC62162833900618958 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 						TestTargetID = 950F7EAF2162833700618958;
 					};
 				};
@@ -251,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E0B24D2163B26A00749AA5 /* Recipe.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,9 +344,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */,
-				9513BF692163A4FD008D4899 /* SearchService.swift in Sources */,
-				950F7EB62162833700618958 /* ViewController.swift in Sources */,
+				9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */,
 				950F7EB42162833700618958 /* AppDelegate.swift in Sources */,
+				9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950F7ECC2162833900618958 /* RecipleaseTests.swift in Sources */,
+				95E0B24F2163B2BA00749AA5 /* SearchServiceTests.swift in Sources */,
+				95E0B2492163B1B300749AA5 /* FakeResponseData.swift in Sources */,
+				95E0B24B2163B23500749AA5 /* URLSessionFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +549,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
 				INFOPLIST_FILE = RecipleaseTests/Info.plist;
@@ -522,6 +560,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.christophedurand.RecipleaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RecipleaseTests/Model/RecipleaseTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciplease.app/Reciplease";
@@ -533,6 +573,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
 				INFOPLIST_FILE = RecipleaseTests/Info.plist;
@@ -543,6 +584,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.christophedurand.RecipleaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RecipleaseTests/Model/RecipleaseTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciplease.app/Reciplease";
