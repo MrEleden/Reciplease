@@ -131,7 +131,6 @@
 		950F7ED62162835A00618958 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9573CA9F2163BB190051E7EB /* GetRecipe */,
 				9573CA9E2163BB110051E7EB /* SearchRecipe */,
 			);
 			path = Model;
@@ -171,13 +170,6 @@
 				9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */,
 			);
 			path = SearchRecipe;
-			sourceTree = "<group>";
-		};
-		9573CA9F2163BB190051E7EB /* GetRecipe */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GetRecipe;
 			sourceTree = "<group>";
 		};
 		95E0B2442163B15A00749AA5 /* Model */ = {

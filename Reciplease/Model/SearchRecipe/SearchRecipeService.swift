@@ -20,13 +20,19 @@ class SearchRecipeService {
         return url
     }
     
-    func getSearchRecipe(searchParameter: String) {
-        guard let url = URL(string: urlSearchRecipe(parameter: searchParameter)) else { return }
-        DispatchQueue.main.async {
-            Alamofire.request(url)
-                .responseJSON { response in
-
-            }
-        }
-    }
+//    func getSearchRecipe(searchParameter: String, completion: @escaping (SearchRecipe, Error?)) -> Void {
+//        guard let url = URL(string: urlSearchRecipe(parameter: searchParameter)) else { return }
+//        DispatchQueue.main.async {
+//            Alamofire.request(url, method: .get).validate().responseJSON { response in
+//                switch response.result {
+//                case .success:
+//                    if let response = response.result.value {
+//                        callback(JSON(response), nil)
+//                    }
+//                case .failure(let error):
+//                    callback(JSON.null, error)
+//                }
+//            }
+//        }
+//    }
 }
