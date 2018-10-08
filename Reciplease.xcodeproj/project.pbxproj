@@ -15,9 +15,8 @@
 		9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */; };
 		9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA22163BC4A0051E7EB /* URLStruct.swift */; };
 		9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592C5832167D24000206796 /* SearchRecipeViewController.swift */; };
-		95E0B2492163B1B300749AA5 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0B2482163B1B300749AA5 /* FakeResponseData.swift */; };
-		95E0B24B2163B23500749AA5 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0B24A2163B23500749AA5 /* URLSessionFake.swift */; };
-		95E0B24D2163B26A00749AA5 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 95E0B24C2163B26A00749AA5 /* Recipe.json */; };
+		95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C691EB216B993000BEB718 /* SearchRecipe.swift */; };
+		95C691EF216BA25700BEB718 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C691EE216BA25700BEB718 /* UIViewController.swift */; };
 		95E0B24F2163B2BA00749AA5 /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */; };
 		B20E113F6813742DA201B61D /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB038CC63294BF5592154F92 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
@@ -47,9 +46,8 @@
 		9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeService.swift; sourceTree = "<group>"; };
 		9573CAA22163BC4A0051E7EB /* URLStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStruct.swift; sourceTree = "<group>"; };
 		9592C5832167D24000206796 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
-		95E0B2482163B1B300749AA5 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
-		95E0B24A2163B23500749AA5 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
-		95E0B24C2163B26A00749AA5 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
+		95C691EB216B993000BEB718 /* SearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipe.swift; sourceTree = "<group>"; };
+		95C691EE216BA25700BEB718 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 		CB038CC63294BF5592154F92 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +114,7 @@
 				950F7ED62162835A00618958 /* Model */,
 				950F7ED72162835E00618958 /* View */,
 				950F7ED82162836400618958 /* Controller */,
+				95C691ED216BA22600BEB718 /* Extensions */,
 				950F7ED92162838000618958 /* Supporting Files */,
 			);
 			path = Reciplease;
@@ -170,17 +169,23 @@
 		9573CA9E2163BB110051E7EB /* SearchRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				95C691EB216B993000BEB718 /* SearchRecipe.swift */,
 				9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */,
 			);
 			path = SearchRecipe;
 			sourceTree = "<group>";
 		};
+		95C691ED216BA22600BEB718 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				95C691EE216BA25700BEB718 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		95E0B2442163B15A00749AA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95E0B2482163B1B300749AA5 /* FakeResponseData.swift */,
-				95E0B24A2163B23500749AA5 /* URLSessionFake.swift */,
-				95E0B24C2163B26A00749AA5 /* Recipe.json */,
 				95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */,
 			);
 			path = Model;
@@ -280,7 +285,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95E0B24D2163B26A00749AA5 /* Recipe.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,14 +323,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -340,9 +342,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C691EF216BA25700BEB718 /* UIViewController.swift in Sources */,
 				950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */,
 				9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */,
 				9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */,
+				95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */,
 				950F7EB42162833700618958 /* AppDelegate.swift in Sources */,
 				9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */,
 			);
@@ -353,8 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E0B24F2163B2BA00749AA5 /* SearchServiceTests.swift in Sources */,
-				95E0B2492163B1B300749AA5 /* FakeResponseData.swift in Sources */,
-				95E0B24B2163B23500749AA5 /* URLSessionFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
