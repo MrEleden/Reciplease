@@ -17,28 +17,48 @@ class SearchRecipeViewController: UIViewController {
     @IBOutlet weak var searchForRecipesButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let searchRecipeService = SearchRecipeService()
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleActivityIndicator(shown: false)
-    }
-    
-    @IBAction func clear(_ sender: UIButton) {
-
+        registerIngredientsTableView()
     }
     
     @IBAction func add(_ sender: UIButton) {
-       
+        addIngredientIntoList()
+    }
+    
+    @IBAction func clear(_ sender: UIButton) {
+        clearList()
     }
     
     @IBAction func searchForRecipes(_ sender: UIButton) {
         searchRecipe()
     }
     
+    private func addIngredientIntoList() {
+        guard let name = ingredientsTextField.text else { return }
+        if name != "" {
+            let ingredient = Ingredient(name: name)
+            IngredientService.shared.add(ingredient: ingredient)
+            ingredientsTableView.reloadData()
+            ingredientsTextField.text = ""
+        } else {
+            showAlert(title: "Hey!", message: "You need to tell me what's in your fridge first!")
+        }
+    }
+    
+    private func clearList() {
+        if IngredientService.shared.ingredients.isEmpty == false  {
+            IngredientService.shared.ingredients.removeAll()
+            ingredientsTableView.reloadData()
+        } else {
+            showAlert(title: "Hey!", message: "Don't clear what you already don't have!")
+        }
+    }
+    
     private func searchRecipe() {
         guard let searchIngredientstextField = ingredientsTextField.text else { return }
-        searchRecipeService.getSearchRecipe(searchParameters: searchIngredientstextField) { (success, recipe) in
+        SearchRecipeService.shared.getSearchRecipe(searchParameters: searchIngredientstextField) { (success, recipe) in
             self.toggleActivityIndicator(shown: true)
             if success {
                 self.toggleActivityIndicator(shown: false)
@@ -48,11 +68,44 @@ class SearchRecipeViewController: UIViewController {
         }
     }
     
+    private func registerIngredientsTableView() {
+        ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
+        ingredientsTableView.reloadData()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     private func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
         searchForRecipesButton.isHidden = shown
     }
 }
+
+extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return IngredientService.shared.ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+        
+        let ingredient = IngredientService.shared.ingredients[indexPath.row]
+        
+        cell.textLabel?.text = "- " + ingredient.name
+        cell.backgroundColor = .black
+        cell.textLabel?.textColor = .white
+        
+        return cell
+    }
+}
+
+    
 
 
 

@@ -11,6 +11,9 @@ import Alamofire
 
 class SearchRecipeService {
     
+    static let shared = SearchRecipeService()
+    private init() {}
+
     private func urlSearchRecipe(searchParameters: String) -> String {
         var searchRecipeURL: String
         guard let searchParameters = searchParameters.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return "" }
