@@ -9,15 +9,15 @@
 import Foundation
 
 struct SearchRecipe: Decodable {
-    var matches: Matches
+    let matches: Matches
 }
 
 struct Matches: Decodable {
     let id: String
     let recipeName: String
     let ingredients: [String]
-    let imageUrlsBySize: URL
-    let smallImageUrls: URL
+    let imageUrlsBySize: String
+    let smallImageUrls: [String: String]
     let totalTimeInSeconds: Int
     let rating: Int
 }

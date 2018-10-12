@@ -1,5 +1,5 @@
 //
-//  Ingredient.swift
+//  RecipeService.swift
 //  Reciplease
 //
 //  Created by Christophe DURAND on 12/10/2018.
@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct Ingredient {
-    let name: String
+class RecipeService {
+    
+    static let shared = RecipeService()
+    private init() {}
+    
+    var recipes: [Recipe] = []
 }

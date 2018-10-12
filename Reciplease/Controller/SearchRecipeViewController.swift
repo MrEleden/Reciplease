@@ -34,12 +34,16 @@ class SearchRecipeViewController: UIViewController {
     @IBAction func searchForRecipes(_ sender: UIButton) {
         searchRecipe()
     }
-    
+
     private func addIngredientIntoList() {
-        guard let name = ingredientsTextField.text else { return }
-        if name != "" {
-            let ingredient = Ingredient(name: name)
-            IngredientService.shared.add(ingredient: ingredient)
+        guard let inputs = ingredientsTextField.text else { return }
+        if inputs != "" {
+            let ingredients = inputs.components(separatedBy: ",")
+            for ingredient in ingredients {
+                let ingredientToAdd = ingredient
+                let ingredientName = Ingredient(name: ingredientToAdd)
+                IngredientService.shared.add(ingredient: ingredientName)
+            }
             ingredientsTableView.reloadData()
             ingredientsTextField.text = ""
         } else {
@@ -60,7 +64,8 @@ class SearchRecipeViewController: UIViewController {
         guard let searchIngredientstextField = ingredientsTextField.text else { return }
         SearchRecipeService.shared.getSearchRecipe(searchParameters: searchIngredientstextField) { (success, recipe) in
             self.toggleActivityIndicator(shown: true)
-            if success {
+            if success, let recipe = recipe {
+
                 self.toggleActivityIndicator(shown: false)
             } else {
                 self.showAlert(title: "Error", message: "Recipes data download failed!")
@@ -73,13 +78,13 @@ class SearchRecipeViewController: UIViewController {
         ingredientsTableView.reloadData()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
     private func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
         searchForRecipesButton.isHidden = shown
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 
