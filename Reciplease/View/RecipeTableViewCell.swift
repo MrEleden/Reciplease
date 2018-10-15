@@ -19,11 +19,6 @@ class RecipeTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(withBackgroundImage: String, title: String, subtitle: String) {
-        //recipeBackgroundImage.image =
-        recipeTitleLabel.text = title
-        recipeDetailsLabel.text = subtitle
-    }
-    
+
 
 }

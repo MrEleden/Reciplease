@@ -13,10 +13,9 @@ class IngredientService {
     static let shared = IngredientService()
     private init() {}
     
-    var ingredients: [Ingredient] = []
+    var ingredients: [String] = []
 
-    
-    func add(ingredient: Ingredient) {
+    func add(ingredient: String) {
         ingredients.append(ingredient)
     }
 }

@@ -17,6 +17,8 @@ class SearchRecipeViewController: UIViewController {
     @IBOutlet weak var searchForRecipesButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var matchingRecipes: [Matches] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleActivityIndicator(shown: false)
@@ -40,8 +42,8 @@ class SearchRecipeViewController: UIViewController {
         if inputs != "" {
             let ingredients = inputs.components(separatedBy: ",")
             for ingredient in ingredients {
-                let ingredientToAdd = ingredient
-                let ingredientName = Ingredient(name: ingredientToAdd)
+                let ingredientAddToList = ingredient
+                let ingredientName = ingredientAddToList
                 IngredientService.shared.add(ingredient: ingredientName)
             }
             ingredientsTableView.reloadData()
@@ -61,11 +63,10 @@ class SearchRecipeViewController: UIViewController {
     }
     
     private func searchRecipe() {
-        guard let searchIngredientstextField = ingredientsTextField.text else { return }
-        SearchRecipeService.shared.getSearchRecipe(searchParameters: searchIngredientstextField) { (success, recipe) in
+        SearchRecipeService.shared.getRecipe(ingredients: IngredientService.shared.ingredients) { recipes in
             self.toggleActivityIndicator(shown: true)
-            if success, let recipe = recipe {
-
+            if let recipes = recipes {
+                self.matchingRecipes = recipes
                 self.toggleActivityIndicator(shown: false)
             } else {
                 self.showAlert(title: "Error", message: "Recipes data download failed!")
@@ -102,7 +103,7 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
         
         let ingredient = IngredientService.shared.ingredients[indexPath.row]
         
-        cell.textLabel?.text = "- " + ingredient.name
+        cell.textLabel?.text = "- " + ingredient
         cell.backgroundColor = .black
         cell.textLabel?.textColor = .white
         

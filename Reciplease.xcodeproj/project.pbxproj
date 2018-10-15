@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9506364B2170E52F004C8A57 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506364A2170E52F004C8A57 /* Ingredient.swift */; };
 		9506364F2170E961004C8A57 /* ResultRecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506364E2170E961004C8A57 /* ResultRecipesListViewController.swift */; };
 		950636512170F55E004C8A57 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950636502170F55E004C8A57 /* RecipeTableViewCell.swift */; };
-		950636532170F902004C8A57 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950636522170F902004C8A57 /* RecipeService.swift */; };
-		950636562170F948004C8A57 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950636552170F948004C8A57 /* Recipe.swift */; };
 		950F7EB42162833700618958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950F7EB32162833700618958 /* AppDelegate.swift */; };
 		950F7EB92162833700618958 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EB72162833700618958 /* Main.storyboard */; };
 		950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 950F7EBA2162833700618958 /* Reciplease.xcdatamodeld */; };
@@ -40,11 +37,8 @@
 /* Begin PBXFileReference section */
 		20129F4615A95BCFF34FD3D1 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		373E6AC6B8C26F5DA9D98D2F /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
-		9506364A2170E52F004C8A57 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		9506364E2170E961004C8A57 /* ResultRecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRecipesListViewController.swift; sourceTree = "<group>"; };
 		950636502170F55E004C8A57 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
-		950636522170F902004C8A57 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
-		950636552170F948004C8A57 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		950F7EB02162833700618958 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		950F7EB32162833700618958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		950F7EB82162833700618958 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,7 +97,6 @@
 		950636542170F93A004C8A57 /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
-				950636552170F948004C8A57 /* Recipe.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -201,7 +194,6 @@
 		951E115E216FAF8000D54FA1 /* Ingredient */ = {
 			isa = PBXGroup;
 			children = (
-				9506364A2170E52F004C8A57 /* Ingredient.swift */,
 				951E115F216FAF8B00D54FA1 /* Service */,
 			);
 			path = Ingredient;
@@ -211,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				951E115C216FAF6C00D54FA1 /* IngredientService.swift */,
-				950636522170F902004C8A57 /* RecipeService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -394,15 +385,12 @@
 			files = (
 				95C691EF216BA25700BEB718 /* UIViewController.swift in Sources */,
 				950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */,
-				9506364B2170E52F004C8A57 /* Ingredient.swift in Sources */,
 				950636512170F55E004C8A57 /* RecipeTableViewCell.swift in Sources */,
 				9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */,
 				9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */,
 				951E115D216FAF6C00D54FA1 /* IngredientService.swift in Sources */,
-				950636532170F902004C8A57 /* RecipeService.swift in Sources */,
 				95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */,
 				9506364F2170E961004C8A57 /* ResultRecipesListViewController.swift in Sources */,
-				950636562170F948004C8A57 /* Recipe.swift in Sources */,
 				950F7EB42162833700618958 /* AppDelegate.swift in Sources */,
 				9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */,
 			);
