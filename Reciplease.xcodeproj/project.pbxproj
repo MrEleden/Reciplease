@@ -194,17 +194,9 @@
 		951E115E216FAF8000D54FA1 /* Ingredient */ = {
 			isa = PBXGroup;
 			children = (
-				951E115F216FAF8B00D54FA1 /* Service */,
-			);
-			path = Ingredient;
-			sourceTree = "<group>";
-		};
-		951E115F216FAF8B00D54FA1 /* Service */ = {
-			isa = PBXGroup;
-			children = (
 				951E115C216FAF6C00D54FA1 /* IngredientService.swift */,
 			);
-			path = Service;
+			path = Ingredient;
 			sourceTree = "<group>";
 		};
 		9573CA9E2163BB110051E7EB /* SearchRecipe */ = {

@@ -11,31 +11,33 @@ import Alamofire
 
 class SearchRecipeService {
     
-    static let shared = SearchRecipeService()
-    private init() {}
-
-    func getRecipe(ingredients: [String], completion: @escaping ([Matches]?) -> Void) {
-        let url = YummlyAPI.baseURL + YummlyAPI.appIDURL + YummlyAPI.appID + YummlyAPI.appKeyURL + YummlyAPI.appKey + YummlyAPI.picturesURL
-        let searchParameters = ["q": ingredients]
-        Alamofire.request(url, parameters: searchParameters, encoding: URLEncoding.queryString).validate().responseJSON { response in
+    func getRecipe(ingredients: [String], completion: @escaping (SearchRecipe?) -> Void) {
+        let url = YummlyAPI.baseURL + YummlyAPI.appIDURL + YummlyAPI.appID + YummlyAPI.appKeyURL + YummlyAPI.appKey + YummlyAPI.picturesURL + YummlyAPI.query
+        let parameters = ["q": ingredients]
+        
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { response in
             switch response.result {
             case .success:
-                guard let data = response.data else { return }
-                guard response.error == nil else { return }
-                let searchRecipeResponseJSON = try? JSONDecoder().decode(SearchRecipe.self, from: data)
-                completion(searchRecipeResponseJSON?.matches)
+                guard let data = response.data, response.error == nil else {
+                    completion(nil)
+                    return }
+                guard let searchRecipeResponseJSON = try? JSONDecoder().decode(SearchRecipe.self, from: data) else {
+                    completion(nil)
+                    return
+                }
+                completion(searchRecipeResponseJSON)
             case .failure:
                 completion(nil)
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
+
+    
+    
+    
+    
+    
+    
+    
+

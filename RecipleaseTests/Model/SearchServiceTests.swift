@@ -12,15 +12,5 @@ import XCTest
 class SearchServiceTests: XCTestCase {
 
     override func setUp() {
-
     }
-    
-    func testGivenGetSearchRecipes_WhenUserSearchForRecipes_ThenShowRecipesIntoTableView() {
-        
-        
-        
-    }
-    
-    
-    
 }

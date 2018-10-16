@@ -12,30 +12,35 @@ class ResultRecipesListViewController: UIViewController {
 
     @IBOutlet weak var resultRecipeListTableView: UITableView!
     
+    var matchingRecipes = [Matches]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         resultRecipeListTableView.reloadData()
-        self.navigationItem.title = "List Of Recipes"
+        self.navigationItem.title = "List of recipes"
     }
 }
 
-//extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataSource {
-////    func numberOfSections(in tableView: UITableView) -> Int {
-////        return 1
-////    }
-////
-////    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////        return RecipeService.shared.recipes.count
-////    }
-////
-////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        guard let cell = resultRecipeListTableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
-////            return UITableViewCell()
-////        }
-////        let recipe = RecipeService.shared.recipes[indexPath.row]
-////       // cell.configure(withBackgroundImage: recipe.backgroundImage, title: recipe.title, subtitle: recipe.details)
-////
-////        return cell
-////    }
-//}
+extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matchingRecipes.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = resultRecipeListTableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
+            return UITableViewCell()
+        }
+        //TODO
+        let matchingRecipe: Matches
+        matchingRecipe = matchingRecipes[indexPath.row]
+
+        cell.configure(recipeName: matchingRecipe.recipeName, recipeDetails: matchingRecipe.ingredients, ratings: matchingRecipe.rating, timer: matchingRecipe.totalTimeInSeconds / 60)
+    
+        return cell
+    }
+}
 

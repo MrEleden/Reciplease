@@ -10,9 +10,6 @@ import Foundation
 
 class IngredientService {
     
-    static let shared = IngredientService()
-    private init() {}
-    
     var ingredients: [String] = []
 
     func add(ingredient: String) {

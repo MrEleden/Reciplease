@@ -16,7 +16,7 @@ struct Matches: Decodable {
     let id: String
     let recipeName: String
     let ingredients: [String]
-    let smallImageUrls: [String]
+    let smallImageUrls: String
     let totalTimeInSeconds: Int
     let rating: Int
 }

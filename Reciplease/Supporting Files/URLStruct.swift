@@ -15,4 +15,5 @@ struct YummlyAPI {
     static let appKeyURL = "&_app_key="
     static let appKey = "e8a8dd20eb2e3745b0ea77aa2bdf2578"
     static let picturesURL = "&requirePictures=true"
+    static let query = "&q="
 }

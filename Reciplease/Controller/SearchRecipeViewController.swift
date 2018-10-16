@@ -17,7 +17,10 @@ class SearchRecipeViewController: UIViewController {
     @IBOutlet weak var searchForRecipesButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var matchingRecipes: [Matches] = []
+    var searchRecipeService = SearchRecipeService()
+    var ingredientService = IngredientService()
+    var resultRecipesListViewController = ResultRecipesListViewController()
+    var searchRecipes: SearchRecipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +43,11 @@ class SearchRecipeViewController: UIViewController {
     private func addIngredientIntoList() {
         guard let inputs = ingredientsTextField.text else { return }
         if inputs != "" {
-            let ingredients = inputs.components(separatedBy: ",")
+            let ingredients = inputs.components(separatedBy: ", ")
             for ingredient in ingredients {
                 let ingredientAddToList = ingredient
                 let ingredientName = ingredientAddToList
-                IngredientService.shared.add(ingredient: ingredientName)
+                ingredientService.add(ingredient: ingredientName)
             }
             ingredientsTableView.reloadData()
             ingredientsTextField.text = ""
@@ -54,8 +57,8 @@ class SearchRecipeViewController: UIViewController {
     }
     
     private func clearList() {
-        if IngredientService.shared.ingredients.isEmpty == false  {
-            IngredientService.shared.ingredients.removeAll()
+        if ingredientService.ingredients.isEmpty == false  {
+            ingredientService.ingredients.removeAll()
             ingredientsTableView.reloadData()
         } else {
             showAlert(title: "Hey!", message: "Don't clear what you already don't have!")
@@ -63,11 +66,13 @@ class SearchRecipeViewController: UIViewController {
     }
     
     private func searchRecipe() {
-        SearchRecipeService.shared.getRecipe(ingredients: IngredientService.shared.ingredients) { recipes in
+        searchRecipeService.getRecipe(ingredients: ingredientService.ingredients) { recipes in
+            //TODO
             self.toggleActivityIndicator(shown: true)
             if let recipes = recipes {
-                self.matchingRecipes = recipes
+                self.searchRecipes = recipes
                 self.toggleActivityIndicator(shown: false)
+                self.resultRecipesListViewController.resultRecipeListTableView.reloadData()
             } else {
                 self.showAlert(title: "Error", message: "Recipes data download failed!")
             }
@@ -95,13 +100,13 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return IngredientService.shared.ingredients.count
+        return ingredientService.ingredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
         
-        let ingredient = IngredientService.shared.ingredients[indexPath.row]
+        let ingredient = ingredientService.ingredients[indexPath.row]
         
         cell.textLabel?.text = "- " + ingredient
         cell.backgroundColor = .black
@@ -110,6 +115,7 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
 }
+
 
     
 
