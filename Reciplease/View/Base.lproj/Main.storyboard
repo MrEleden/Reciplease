@@ -151,21 +151,6 @@
                                     <constraint firstAttribute="trailing" secondItem="r70-dY-K9h" secondAttribute="trailing" constant="10" id="rFd-e9-Ev9"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kme-oD-lBC">
-                                <rect key="frame" x="20" y="453" width="280" height="51"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Kme-oD-lBC" secondAttribute="height" multiplier="280:51" id="Rnc-vy-Zhy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <state key="normal" title="Search for recipes">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchForRecipes:" destination="KgN-Y4-Yaz" eventType="touchUpInside" id="1oQ-Ta-aVR"/>
-                                    <segue destination="7vf-pR-c2Q" kind="show" id="A5R-HH-Ote"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1rY-U4-bro">
                                 <rect key="frame" x="141.5" y="460" width="37" height="37"/>
                             </activityIndicatorView>
@@ -202,6 +187,21 @@
                                     <outlet property="delegate" destination="KgN-Y4-Yaz" id="VkG-hz-gah"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kme-oD-lBC">
+                                <rect key="frame" x="20" y="453" width="280" height="51"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Kme-oD-lBC" secondAttribute="height" multiplier="280:51" id="Rnc-vy-Zhy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <state key="normal" title="Search for recipes">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchForRecipes:" destination="KgN-Y4-Yaz" eventType="touchUpInside" id="1oQ-Ta-aVR"/>
+                                    <segue destination="7vf-pR-c2Q" kind="show" id="A5R-HH-Ote"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

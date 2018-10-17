@@ -12,12 +12,18 @@ class ResultRecipesListViewController: UIViewController {
 
     @IBOutlet weak var resultRecipeListTableView: UITableView!
     
-    var matchingRecipes = [Matches]()
+    var matchingRecipes = [SearchRecipe]()
+    var recipes: SearchRecipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultRecipeListTableView.reloadData()
+        registerRecipeListTableView()
         self.navigationItem.title = "List of recipes"
+    }
+    
+    private func registerRecipeListTableView() {
+        resultRecipeListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
+        resultRecipeListTableView.reloadData()
     }
 }
 
@@ -35,10 +41,10 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
             return UITableViewCell()
         }
         //TODO
-        let matchingRecipe: Matches
+        let matchingRecipe: SearchRecipe
         matchingRecipe = matchingRecipes[indexPath.row]
 
-        cell.configure(recipeName: matchingRecipe.recipeName, recipeDetails: matchingRecipe.ingredients, ratings: matchingRecipe.rating, timer: matchingRecipe.totalTimeInSeconds / 60)
+        cell.configure(recipeName: matchingRecipe.matches[indexPath.row].recipeName, recipeDetails: matchingRecipe.matches[indexPath.row].ingredients, ratings: matchingRecipe.matches[indexPath.row].rating, timer: matchingRecipe.matches[indexPath.row].totalTimeInSeconds / 60)
     
         return cell
     }
