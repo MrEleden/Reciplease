@@ -16,7 +16,24 @@ struct Matches: Decodable {
     let id: String
     let recipeName: String
     let ingredients: [String]
-    let smallImageUrls: String
+    let imageUrlsBySize: ImageBySizeURL
     let totalTimeInSeconds: Int
     let rating: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case rating
+        case imageUrlsBySize
+        case recipeName
+        case ingredients
+        case totalTimeInSeconds
+    }
+}
+
+struct ImageBySizeURL: Decodable {
+    let image: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case image = "90"
+    }
 }

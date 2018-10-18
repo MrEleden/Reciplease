@@ -199,7 +199,7 @@
                                 </state>
                                 <connections>
                                     <action selector="searchForRecipes:" destination="KgN-Y4-Yaz" eventType="touchUpInside" id="1oQ-Ta-aVR"/>
-                                    <segue destination="7vf-pR-c2Q" kind="show" id="A5R-HH-Ote"/>
+                                    <segue destination="7vf-pR-c2Q" kind="show" identifier="" id="bUl-WX-QlE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -338,8 +338,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="7vf-pR-c2Q" id="mzM-7J-XDT"/>
-                                    <outlet property="delegate" destination="7vf-pR-c2Q" id="RQD-Sh-vS1"/>
+                                    <outlet property="dataSource" destination="7vf-pR-c2Q" id="m37-xR-uOy"/>
+                                    <outlet property="delegate" destination="7vf-pR-c2Q" id="53Y-VB-dSE"/>
                                 </connections>
                             </tableView>
                         </subviews>

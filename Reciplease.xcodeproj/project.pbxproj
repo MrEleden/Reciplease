@@ -14,6 +14,7 @@
 		950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 950F7EBA2162833700618958 /* Reciplease.xcdatamodeld */; };
 		950F7EBE2162833900618958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBD2162833900618958 /* Assets.xcassets */; };
 		950F7EC12162833900618958 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBF2162833900618958 /* LaunchScreen.storyboard */; };
+		9550D6B621790625004232B1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6B521790625004232B1 /* UIImageView.swift */; };
 		9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */; };
 		9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA22163BC4A0051E7EB /* URLStruct.swift */; };
 		9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592C5832167D24000206796 /* SearchRecipeViewController.swift */; };
@@ -47,6 +48,7 @@
 		950F7EC22162833900618958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950F7EC72162833900618958 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		950F7ECD2162833900618958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9550D6B521790625004232B1 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeService.swift; sourceTree = "<group>"; };
 		9573CAA22163BC4A0051E7EB /* URLStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStruct.swift; sourceTree = "<group>"; };
 		9592C5832167D24000206796 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				95C691EE216BA25700BEB718 /* UIViewController.swift */,
+				9550D6B521790625004232B1 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */,
 				9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */,
 				95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */,
+				9550D6B621790625004232B1 /* UIImageView.swift in Sources */,
 				9506364F2170E961004C8A57 /* ResultRecipesListViewController.swift in Sources */,
 				950F7EB42162833700618958 /* AppDelegate.swift in Sources */,
 				9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */,

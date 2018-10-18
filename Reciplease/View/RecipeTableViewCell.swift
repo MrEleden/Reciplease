@@ -31,10 +31,11 @@ class RecipeTableViewCell: UITableViewCell {
         return ingredientsArray.joined(separator: ",")
     }
     
-    func configure(recipeName: String, recipeDetails: [String], ratings: Int, timer: Int) {
+    func configure(recipeName: String, recipeDetails: [String], ratings: Int, timer: Int, backgroundRecipeImageURL: String) {
         recipeTitleLabel.text = recipeName
         recipeDetailsLabel.text = self.convertIngredientsArrayIntoString(ingredients: recipeDetails)
         ratingsLabel.text = String(ratings)
         timerLabel.text = String(timer)
+        recipeBackgroundImage.load(imageURL: backgroundRecipeImageURL)
     }
 }

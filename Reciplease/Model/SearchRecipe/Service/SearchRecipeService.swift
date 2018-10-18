@@ -11,34 +11,20 @@ import Alamofire
 
 class SearchRecipeService {
     
-    private func urlRecipe(ingredients: String) -> String {
-        var recipeURL: String
-        guard let ingredientsParametersURL = ingredients.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return "" }
-        recipeURL = YummlyAPI.baseURL + YummlyAPI.appIDURL + YummlyAPI.appID + YummlyAPI.appKeyURL + YummlyAPI.appKey + YummlyAPI.picturesURL + YummlyAPI.query + ingredientsParametersURL
-        let url = recipeURL
-        return url
-    }
-    
-    func getRecipe(ingredients: String, completion: @escaping (Bool, [Matches]?) -> Void) {
-        guard let url = URL(string: urlRecipe(ingredients: ingredients)) else { return }
-
-        Alamofire.request(url, method: .get).responseJSON { response in
+    func getRecipe(ingredients: [String], completion: @escaping (Bool, [Matches]?) -> Void) {
+        let url = YummlyAPI.baseURL + YummlyAPI.appIDURL + YummlyAPI.appID + YummlyAPI.appKeyURL + YummlyAPI.appKey + YummlyAPI.picturesURL + YummlyAPI.query
+        let parameters = ["q": ingredients]
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { response in
             guard let data = response.data, response.error == nil else {
-                print("c'est de la merde data")
-                completion(false, [])
+                completion(false, nil)
                 return }
-            guard let response = response.response, response.statusCode == 200 else {
-                print("c'est de la merde statuscode")
-                completion(false, [])
-                return
-            }
             guard let searchRecipeResponseJSON = try? JSONDecoder().decode(SearchRecipe.self, from: data) else {
-                print("c'est de la merde searchreciperesponseJSON")
-                completion(false, [])
+                print(String(describing: response.error?.localizedDescription))
+                completion(false, nil)
                 return }
-            print("c'est bieng")
+            print(searchRecipeResponseJSON.matches)
             completion(true, searchRecipeResponseJSON.matches)
-            }
+        }
     }
 }
 

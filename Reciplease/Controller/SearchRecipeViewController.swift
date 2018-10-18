@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchRecipeViewController: UIViewController {
 
@@ -18,11 +19,9 @@ class SearchRecipeViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var ingredients: [String] = []
-    var recipes: SearchRecipe!
+    var matchingRecipes: [Matches] = []
     var searchRecipeService = SearchRecipeService()
-    var resultRecipesListViewController = ResultRecipesListViewController()
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchForRecipeButtonIsEnabled()
@@ -74,14 +73,11 @@ class SearchRecipeViewController: UIViewController {
     }
     
     private func searchRecipe() {
-        searchRecipeService.getRecipe(ingredients: convertIngredientsArrayIntoString(ingredients: ingredients)) { (success, recipes) in
-            //TODO
+        searchRecipeService.getRecipe(ingredients: ingredients) { (success, recipes)  in
             self.toggleActivityIndicator(shown: true)
             if success, let recipes = recipes {
-                self.recipes = recipes
-                self.performSegue(withIdentifier: "segueToRecipesResults", sender: self)
+                self.matchingRecipes = recipes
                 self.toggleActivityIndicator(shown: false)
-                self.resultRecipesListViewController.resultRecipeListTableView.reloadData()
             } else {
                 self.showAlert(title: "Error", message: "Recipes data download failed!")
             }
@@ -108,12 +104,13 @@ class SearchRecipeViewController: UIViewController {
         searchForRecipesButton.isHidden = shown
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToRecipesResults" {
-            let resultsVC = segue.destination as! ResultRecipesListViewController
-            resultsVC.recipes = recipes
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "recipesResults" {
+//            let resultsVC = segue.destination as! ResultRecipesListViewController
+//            resultsVC.matchingRecipes = matchingRecipes
+//        }
+//    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }

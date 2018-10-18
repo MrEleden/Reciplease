@@ -12,17 +12,14 @@ class ResultRecipesListViewController: UIViewController {
 
     @IBOutlet weak var resultRecipeListTableView: UITableView!
     
-    var matchingRecipes = [SearchRecipe]()
-    var recipes: SearchRecipe!
+    var matchingRecipes = [Matches]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerRecipeListTableView()
-        self.navigationItem.title = "List of recipes"
+        self.navigationItem.title = "List of recipes"        
     }
-    
-    private func registerRecipeListTableView() {
-        resultRecipeListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         resultRecipeListTableView.reloadData()
     }
 }
@@ -31,7 +28,7 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingRecipes.count
     }
@@ -41,10 +38,7 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
             return UITableViewCell()
         }
         //TODO
-        let matchingRecipe: SearchRecipe
-        matchingRecipe = matchingRecipes[indexPath.row]
-
-        cell.configure(recipeName: matchingRecipe.matches[indexPath.row].recipeName, recipeDetails: matchingRecipe.matches[indexPath.row].ingredients, ratings: matchingRecipe.matches[indexPath.row].rating, timer: matchingRecipe.matches[indexPath.row].totalTimeInSeconds / 60)
+        cell.configure(recipeName: matchingRecipes[indexPath.row].recipeName, recipeDetails: matchingRecipes[indexPath.row].ingredients, ratings: matchingRecipes[indexPath.row].rating, timer: matchingRecipes[indexPath.row].totalTimeInSeconds / 60, backgroundRecipeImageURL: matchingRecipes[indexPath.row].imageUrlsBySize.image)
     
         return cell
     }
