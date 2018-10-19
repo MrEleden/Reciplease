@@ -11,7 +11,6 @@ import UIKit
 extension UIImageView {
     func load(imageURL: String?) {
         guard let urlImageString = imageURL else { return }
-        
         guard let urlImage = URL(string: urlImageString) else { return }
         
         DispatchQueue.global().async { [weak self] in

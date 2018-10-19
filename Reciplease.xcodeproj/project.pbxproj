@@ -20,6 +20,7 @@
 		9550D6C4217A2E2E004232B1 /* DetailedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6C3217A2E2E004232B1 /* DetailedRecipe.swift */; };
 		9550D6C8217A358C004232B1 /* DetailedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6C7217A358C004232B1 /* DetailedRecipesViewController.swift */; };
 		9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA22163BC4A0051E7EB /* URLStruct.swift */; };
+		9578032B217A526D006F2B3C /* DetailedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9578032A217A526D006F2B3C /* DetailedRecipeView.swift */; };
 		9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592C5832167D24000206796 /* SearchRecipeViewController.swift */; };
 		95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C691EB216B993000BEB718 /* SearchRecipe.swift */; };
 		95C691EF216BA25700BEB718 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C691EE216BA25700BEB718 /* UIViewController.swift */; };
@@ -57,6 +58,7 @@
 		9550D6C3217A2E2E004232B1 /* DetailedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRecipe.swift; sourceTree = "<group>"; };
 		9550D6C7217A358C004232B1 /* DetailedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRecipesViewController.swift; sourceTree = "<group>"; };
 		9573CAA22163BC4A0051E7EB /* URLStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStruct.swift; sourceTree = "<group>"; };
+		9578032A217A526D006F2B3C /* DetailedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRecipeView.swift; sourceTree = "<group>"; };
 		9592C5832167D24000206796 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
 		95C691EB216B993000BEB718 /* SearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipe.swift; sourceTree = "<group>"; };
 		95C691EE216BA25700BEB718 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				950F7EB72162833700618958 /* Main.storyboard */,
 				950F7EBF2162833900618958 /* LaunchScreen.storyboard */,
 				950636502170F55E004C8A57 /* RecipeTableViewCell.swift */,
+				9578032A217A526D006F2B3C /* DetailedRecipeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */,
 				950636512170F55E004C8A57 /* RecipeTableViewCell.swift in Sources */,
 				9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */,
+				9578032B217A526D006F2B3C /* DetailedRecipeView.swift in Sources */,
 				9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */,
 				95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */,
 				9550D6B621790625004232B1 /* UIImageView.swift in Sources */,

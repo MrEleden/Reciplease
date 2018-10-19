@@ -12,9 +12,11 @@ import Alamofire
 class DetailedRecipeService {
     
     func getDetailedRecipe(recipeID: String, completion: @escaping (Bool, DetailedRecipe?) -> Void) {
-        let url = YummlyAPI.baseURL + "\(recipeID)" + YummlyAPI.appIDURL + YummlyAPI.appID + YummlyAPI.appKeyURL + YummlyAPI.appKey
-        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default).validate().responseJSON { response in
+        let url = YummlyAPI.baseURL + "\(recipeID)?" + YummlyAPI.appIDURL + YummlyAPI.appID + YummlyAPI.appKeyURL + YummlyAPI.appKey
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default).responseJSON { response in
+            print(response)
             guard let data = response.data, response.error == nil else {
+                print(String(describing: response.error?.localizedDescription))
                 completion(false, nil)
                 return }
             guard let detailedRecipeResponseJSON = try? JSONDecoder().decode(DetailedRecipe.self, from: data) else {

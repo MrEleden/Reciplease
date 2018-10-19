@@ -9,27 +9,19 @@
 import UIKit
 
 class DetailedRecipesViewController: UIViewController {
-    @IBOutlet weak var recipeImageView: UIImageView!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var recipeTitleLabel: UILabel!
-    @IBOutlet weak var recipeDescriptionLabel: UILabel!
-    @IBOutlet weak var getDirectionsButton: UIButton!
-    
-    var detailedRecipe: DetailedRecipe?
-    
-    func setUI() {
-        recipeImageView.image = detailedRecipe?.images
 
-    }
+    @IBOutlet weak var detailedRecipeView: DetailedRecipeView!
     
-    
+    var detailedRecipe: DetailedRecipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTime, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
     }
     
 
+    
+    
     
 }
 

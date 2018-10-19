@@ -30,7 +30,7 @@ class RecipeTableViewCell: UITableViewCell {
     
     func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
         let ingredientsArray = ingredients.map{ String($0) }
-        return ingredientsArray.joined(separator: ",")
+        return ingredientsArray.joined(separator: ", ")
     }
     
     func configure(recipeName: String, recipeDetails: [String], ratings: Int, timer: Int, backgroundRecipeImageURL: String) {

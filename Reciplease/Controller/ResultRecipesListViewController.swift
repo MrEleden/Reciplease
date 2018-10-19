@@ -14,6 +14,8 @@ class ResultRecipesListViewController: UIViewController {
     @IBOutlet weak var resultRecipeListTableView: UITableView!
     
     var matchingRecipes = [Matches]()
+    var detailedRecipeService = DetailedRecipeService()
+    var detailedRecipe: DetailedRecipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +27,29 @@ class ResultRecipesListViewController: UIViewController {
         super.viewWillAppear(true)
         resultRecipeListTableView.reloadData()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailedRecipesSegue" {
-            let detailedRecipesVC = segue.destination as! DetailedRecipesViewController
-            detailedRecipesVC.detailedRecipe = sender as? DetailedRecipe
+
+    private func getDetailsForRecipe(recipeID: String) {
+        detailedRecipeService.getDetailedRecipe(recipeID: recipeID) { (success, detailedRecipe)  in
+            //self.toggleActivityIndicator(shown: true)
+            if success, let detailedRecipe = detailedRecipe {
+                self.detailedRecipe = detailedRecipe
+                self.performSegue(withIdentifier: "detailedRecipeSegue", sender: self)
+                //  self.toggleActivityIndicator(shown: false)
+            } else {
+                self.showAlert(title: "Error", message: "Recipes Details data download failed!")
+            }
         }
     }
     
     private func setResultRecipesTableViewRowHeight() {
         resultRecipeListTableView.rowHeight = 120
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailedRecipeSegue" {
+            let detailedRecipesVC = segue.destination as! DetailedRecipesViewController
+            detailedRecipesVC.detailedRecipe = detailedRecipe
+        }
     }
 }
 
@@ -62,8 +77,8 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let matchingRecipe = matchingRecipes[indexPath.row]
-        self.performSegue(withIdentifier: "detailedRecipesSegue", sender: matchingRecipe)
+        guard let index = resultRecipeListTableView.indexPathForSelectedRow?.row else { return }
+        getDetailsForRecipe(recipeID: matchingRecipes[index].id)
     }
 }
 

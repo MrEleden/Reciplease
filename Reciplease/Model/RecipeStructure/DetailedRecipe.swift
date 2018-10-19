@@ -9,18 +9,20 @@
 import Foundation
 
 struct DetailedRecipe: Decodable {
+    let totalTime: Int
+    let images: [Images]
     let name: String
-    let ingredientLines: [String]
     let source: Source
-    let images: [URLImages]
+    let ingredientLines: [String]
     let rating: Int
-    let totalTimeInSeconds: Int
+}
+
+struct Images: Decodable {
+    let hostedLargeUrl: String
 }
 
 struct Source: Decodable {
     let sourceRecipeUrl: String
 }
 
-struct URLImages: Decodable {
-    let hostedLargeUrl: String
-}
+
