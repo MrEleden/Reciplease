@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ResultRecipesListViewController: UIViewController {
 
@@ -16,11 +17,24 @@ class ResultRecipesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "List of recipes"        
+        setResultRecipesTableViewRowHeight()
+        self.navigationItem.title = "List of Recipes"
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         resultRecipeListTableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailedRecipesSegue" {
+            let detailedRecipesVC = segue.destination as! DetailedRecipesViewController
+            detailedRecipesVC.detailedRecipe = sender as? DetailedRecipe
+        }
+    }
+    
+    private func setResultRecipesTableViewRowHeight() {
+        resultRecipeListTableView.rowHeight = 120
     }
 }
 
@@ -28,7 +42,7 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingRecipes.count
     }
@@ -37,10 +51,19 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
         guard let cell = resultRecipeListTableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
             return UITableViewCell()
         }
-        //TODO
-        cell.configure(recipeName: matchingRecipes[indexPath.row].recipeName, recipeDetails: matchingRecipes[indexPath.row].ingredients, ratings: matchingRecipes[indexPath.row].rating, timer: matchingRecipes[indexPath.row].totalTimeInSeconds / 60, backgroundRecipeImageURL: matchingRecipes[indexPath.row].imageUrlsBySize.image)
     
+        cell.configure(recipeName: matchingRecipes[indexPath.row].recipeName,
+                       recipeDetails: matchingRecipes[indexPath.row].ingredients,
+                       ratings: matchingRecipes[indexPath.row].rating,
+                       timer: matchingRecipes[indexPath.row].totalTimeInSeconds / 60,
+                       backgroundRecipeImageURL:
+            matchingRecipes[indexPath.row].imageUrlsBySize.image)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let matchingRecipe = matchingRecipes[indexPath.row]
+        self.performSegue(withIdentifier: "detailedRecipesSegue", sender: matchingRecipe)
     }
 }
 

@@ -15,7 +15,10 @@
 		950F7EBE2162833900618958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBD2162833900618958 /* Assets.xcassets */; };
 		950F7EC12162833900618958 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBF2162833900618958 /* LaunchScreen.storyboard */; };
 		9550D6B621790625004232B1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6B521790625004232B1 /* UIImageView.swift */; };
-		9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */; };
+		9550D6BE217A2DC2004232B1 /* DetailedRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6BA217A2DC1004232B1 /* DetailedRecipeService.swift */; };
+		9550D6C2217A2DEE004232B1 /* SearchRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6C1217A2DEE004232B1 /* SearchRecipeService.swift */; };
+		9550D6C4217A2E2E004232B1 /* DetailedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6C3217A2E2E004232B1 /* DetailedRecipe.swift */; };
+		9550D6C8217A358C004232B1 /* DetailedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6C7217A358C004232B1 /* DetailedRecipesViewController.swift */; };
 		9573CAA32163BC4A0051E7EB /* URLStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573CAA22163BC4A0051E7EB /* URLStruct.swift */; };
 		9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592C5832167D24000206796 /* SearchRecipeViewController.swift */; };
 		95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C691EB216B993000BEB718 /* SearchRecipe.swift */; };
@@ -49,7 +52,10 @@
 		950F7EC72162833900618958 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		950F7ECD2162833900618958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9550D6B521790625004232B1 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeService.swift; sourceTree = "<group>"; };
+		9550D6BA217A2DC1004232B1 /* DetailedRecipeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedRecipeService.swift; sourceTree = "<group>"; };
+		9550D6C1217A2DEE004232B1 /* SearchRecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeService.swift; sourceTree = "<group>"; };
+		9550D6C3217A2E2E004232B1 /* DetailedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRecipe.swift; sourceTree = "<group>"; };
+		9550D6C7217A358C004232B1 /* DetailedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRecipesViewController.swift; sourceTree = "<group>"; };
 		9573CAA22163BC4A0051E7EB /* URLStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStruct.swift; sourceTree = "<group>"; };
 		9592C5832167D24000206796 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
 		95C691EB216B993000BEB718 /* SearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipe.swift; sourceTree = "<group>"; };
@@ -138,7 +144,8 @@
 		950F7ED62162835A00618958 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9573CA9E2163BB110051E7EB /* SearchRecipe */,
+				9550D6C6217A2E4F004232B1 /* Services */,
+				9550D6C5217A2E40004232B1 /* RecipeStructure */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 			children = (
 				9592C5832167D24000206796 /* SearchRecipeViewController.swift */,
 				9506364E2170E961004C8A57 /* ResultRecipesListViewController.swift */,
+				9550D6C7217A358C004232B1 /* DetailedRecipesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,21 +182,22 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		951E1159216FAE8E00D54FA1 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				9573CAA02163BB2B0051E7EB /* SearchRecipeService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		9573CA9E2163BB110051E7EB /* SearchRecipe */ = {
+		9550D6C5217A2E40004232B1 /* RecipeStructure */ = {
 			isa = PBXGroup;
 			children = (
 				95C691EB216B993000BEB718 /* SearchRecipe.swift */,
-				951E1159216FAE8E00D54FA1 /* Service */,
+				9550D6C3217A2E2E004232B1 /* DetailedRecipe.swift */,
 			);
-			path = SearchRecipe;
+			path = RecipeStructure;
+			sourceTree = "<group>";
+		};
+		9550D6C6217A2E4F004232B1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9550D6C1217A2DEE004232B1 /* SearchRecipeService.swift */,
+				9550D6BA217A2DC1004232B1 /* DetailedRecipeService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		95C691ED216BA22600BEB718 /* Extensions */ = {
@@ -367,8 +376,11 @@
 				95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */,
 				9550D6B621790625004232B1 /* UIImageView.swift in Sources */,
 				9506364F2170E961004C8A57 /* ResultRecipesListViewController.swift in Sources */,
+				9550D6BE217A2DC2004232B1 /* DetailedRecipeService.swift in Sources */,
 				950F7EB42162833700618958 /* AppDelegate.swift in Sources */,
-				9573CAA12163BB2B0051E7EB /* SearchRecipeService.swift in Sources */,
+				9550D6C8217A358C004232B1 /* DetailedRecipesViewController.swift in Sources */,
+				9550D6C2217A2DEE004232B1 /* SearchRecipeService.swift in Sources */,
+				9550D6C4217A2E2E004232B1 /* DetailedRecipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

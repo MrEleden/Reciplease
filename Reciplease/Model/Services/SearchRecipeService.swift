@@ -22,7 +22,6 @@ class SearchRecipeService {
                 print(String(describing: response.error?.localizedDescription))
                 completion(false, nil)
                 return }
-            print(searchRecipeResponseJSON.matches)
             completion(true, searchRecipeResponseJSON.matches)
         }
     }

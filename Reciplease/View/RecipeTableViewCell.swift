@@ -15,6 +15,8 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeDetailsLabel: UILabel!
     @IBOutlet weak var ratingsLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var ratingsImageView: UIImageView!
+    @IBOutlet weak var timerImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +37,7 @@ class RecipeTableViewCell: UITableViewCell {
         recipeTitleLabel.text = recipeName
         recipeDetailsLabel.text = self.convertIngredientsArrayIntoString(ingredients: recipeDetails)
         ratingsLabel.text = String(ratings)
-        timerLabel.text = String(timer)
+        timerLabel.text = String(timer) + " min"
         recipeBackgroundImage.load(imageURL: backgroundRecipeImageURL)
     }
 }

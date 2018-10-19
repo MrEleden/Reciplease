@@ -77,6 +77,7 @@ class SearchRecipeViewController: UIViewController {
             self.toggleActivityIndicator(shown: true)
             if success, let recipes = recipes {
                 self.matchingRecipes = recipes
+                self.performSegue(withIdentifier: "recipesResultsSegue", sender: self)
                 self.toggleActivityIndicator(shown: false)
             } else {
                 self.showAlert(title: "Error", message: "Recipes data download failed!")
@@ -104,15 +105,15 @@ class SearchRecipeViewController: UIViewController {
         searchForRecipesButton.isHidden = shown
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "recipesResults" {
-//            let resultsVC = segue.destination as! ResultRecipesListViewController
-//            resultsVC.matchingRecipes = matchingRecipes
-//        }
-//    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recipesResultsSegue" {
+            let resultsRecipesVC = segue.destination as! ResultRecipesListViewController
+            resultsRecipesVC.matchingRecipes = matchingRecipes
+        }
     }
 }
 
@@ -126,11 +127,11 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+        let cell = ingredientsTableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
         
         let ingredient = ingredients[indexPath.row]
         
-        cell.textLabel?.text = "-" + " \(ingredient)"
+        cell.textLabel?.text = "- " + "\(ingredient)"
         cell.backgroundColor = .black
         cell.textLabel?.textColor = .white
         
