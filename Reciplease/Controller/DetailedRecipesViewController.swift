@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailedRecipesViewController: UIViewController {
-
+    
     @IBOutlet weak var detailedRecipeView: DetailedRecipeView!
     
     var detailedRecipe: DetailedRecipe!

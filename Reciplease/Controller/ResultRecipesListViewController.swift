@@ -32,7 +32,6 @@ class ResultRecipesListViewController: UIViewController {
             //self.toggleActivityIndicator(shown: true)
             if success {
                 self.detailedRecipe = detailedRecipe
-                //print(detailedRecipe)
                 self.performSegue(withIdentifier: "detailedRecipeSegue", sender: self)
                 //self.toggleActivityIndicator(shown: false)
             } else {

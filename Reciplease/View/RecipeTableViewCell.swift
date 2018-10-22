@@ -17,6 +17,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var ratingsImageView: UIImageView!
     @IBOutlet weak var timerImageView: UIImageView!
+    @IBOutlet weak var view: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +29,7 @@ class RecipeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
+    private func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
         let ingredientsArray = ingredients.map{ String($0) }
         return ingredientsArray.joined(separator: ", ")
     }
@@ -37,7 +38,9 @@ class RecipeTableViewCell: UITableViewCell {
         recipeTitleLabel.text = recipeName
         recipeDetailsLabel.text = self.convertIngredientsArrayIntoString(ingredients: recipeDetails)
         ratingsLabel.text = String(ratings)
-        timerLabel.text = String(timer) + " min"
+        timerLabel.text = String(timer) + "m."
         recipeBackgroundImage.load(imageURL: backgroundRecipeImageURL)
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.init(red: 222/255, green: 225/255, blue: 227/255, alpha: 1).cgColor
     }
 }

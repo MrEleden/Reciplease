@@ -11,7 +11,8 @@ import UIKit
 extension UIImageView {
     func load(imageURL: String?) {
         guard let urlImageString = imageURL else { return }
-        guard let urlImage = URL(string: urlImageString) else { return }
+        let urlImageStringHD = urlImageString.replacingOccurrences(of: "90", with: "900")
+        guard let urlImage = URL(string: urlImageStringHD) else { return }
         DispatchQueue.global().async { [weak self] in
             guard let imageData = try? Data(contentsOf: urlImage) else { return }
             if let image = UIImage(data: imageData) {

@@ -23,6 +23,7 @@ class SearchRecipeViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ingredientsTextField.setBottomBorder()
         searchForRecipeButtonIsEnabled()
         toggleActivityIndicator(shown: false)
         registerIngredientsTableView()
@@ -89,11 +90,6 @@ class SearchRecipeViewController: UIViewController {
         searchForRecipesButton.backgroundColor = UIColor.lightGray
     }
     
-    func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
-        let ingredientsArray = ingredients.map{ String($0) }
-        return ingredientsArray.joined(separator: ",")
-    }
-    
     private func registerIngredientsTableView() {
         ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
         ingredientsTableView.reloadData()
@@ -127,15 +123,12 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ingredientsTableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
-        
         let ingredient = ingredients[indexPath.row]
-        
         cell.textLabel?.text = "- " + "\(ingredient)"
-        cell.backgroundColor = .black
         cell.textLabel?.textColor = .white
+        cell.backgroundColor = .black
         
         let cellTextLabel = cell.textLabel?.text
-        
         if cellTextLabel?.isEmpty == false {
             searchForRecipesButton.isEnabled = true
             searchForRecipesButton.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)

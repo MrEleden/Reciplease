@@ -14,6 +14,7 @@
 		950F7EBC2162833700618958 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 950F7EBA2162833700618958 /* Reciplease.xcdatamodeld */; };
 		950F7EBE2162833900618958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBD2162833900618958 /* Assets.xcassets */; };
 		950F7EC12162833900618958 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950F7EBF2162833900618958 /* LaunchScreen.storyboard */; };
+		95123AB3217E20A500860546 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95123AB2217E20A500860546 /* UITextField.swift */; };
 		9550D6B621790625004232B1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6B521790625004232B1 /* UIImageView.swift */; };
 		9550D6BE217A2DC2004232B1 /* DetailedRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6BA217A2DC1004232B1 /* DetailedRecipeService.swift */; };
 		9550D6C2217A2DEE004232B1 /* SearchRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550D6C1217A2DEE004232B1 /* SearchRecipeService.swift */; };
@@ -52,6 +53,7 @@
 		950F7EC22162833900618958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950F7EC72162833900618958 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		950F7ECD2162833900618958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95123AB2217E20A500860546 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		9550D6B521790625004232B1 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		9550D6BA217A2DC1004232B1 /* DetailedRecipeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedRecipeService.swift; sourceTree = "<group>"; };
 		9550D6C1217A2DEE004232B1 /* SearchRecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeService.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				95C691EE216BA25700BEB718 /* UIViewController.swift */,
 				9550D6B521790625004232B1 /* UIImageView.swift */,
+				95123AB2217E20A500860546 /* UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				9506364F2170E961004C8A57 /* ResultRecipesListViewController.swift in Sources */,
 				9550D6BE217A2DC2004232B1 /* DetailedRecipeService.swift in Sources */,
 				950F7EB42162833700618958 /* AppDelegate.swift in Sources */,
+				95123AB3217E20A500860546 /* UITextField.swift in Sources */,
 				9550D6C8217A358C004232B1 /* DetailedRecipesViewController.swift in Sources */,
 				9550D6C2217A2DEE004232B1 /* SearchRecipeService.swift in Sources */,
 				9550D6C4217A2E2E004232B1 /* DetailedRecipe.swift in Sources */,

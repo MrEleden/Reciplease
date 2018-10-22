@@ -15,9 +15,9 @@ class DetailedRecipeView: UIView {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var detailedRecipeDescriptionTextView: UITextView!
     @IBOutlet weak var getDirectionsButton: UIButton!
+    @IBOutlet weak var view: UIView!
     
-    
-    private func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {
+    func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {
         var descriptions = ""
         for recipeDescription in detailedRecipe {
             descriptions += "- " + recipeDescription + "\n"
@@ -28,9 +28,10 @@ class DetailedRecipeView: UIView {
     func detailedRecipeConfigure(detailedRecipeName: String, detailedRecipeDetails: [String], rating: Int, timer: Int, backgroundDetailedRecipeImageURL: String) {
         detailedRecipeNameLabel.text = detailedRecipeName
         detailedRecipeDescriptionTextView.text = convertIntoStringDetailedRecipe(detailedRecipe: detailedRecipeDetails)
-        detailedRecipeDescriptionTextView.textColor = .white
         ratingLabel.text = String(rating)
-        timerLabel.text = String(timer)
+        timerLabel.text = String(timer) + "m."
         detailedRecipeBackgroundImageView.load(imageURL: backgroundDetailedRecipeImageURL)
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.init(red: 222/255, green: 225/255, blue: 227/255, alpha: 1).cgColor
     }
 }
