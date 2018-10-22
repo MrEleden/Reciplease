@@ -17,7 +17,7 @@ class DetailedRecipeView: UIView {
     @IBOutlet weak var getDirectionsButton: UIButton!
     
     
-    private func getStringDetailedRecipeFromArray(detailedRecipe: [String]) -> String {
+    private func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {
         var descriptions = ""
         for recipeDescription in detailedRecipe {
             descriptions += "- " + recipeDescription + "\n"
@@ -27,7 +27,8 @@ class DetailedRecipeView: UIView {
     
     func detailedRecipeConfigure(detailedRecipeName: String, detailedRecipeDetails: [String], rating: Int, timer: Int, backgroundDetailedRecipeImageURL: String) {
         detailedRecipeNameLabel.text = detailedRecipeName
-        detailedRecipeDescriptionTextView.text = getStringDetailedRecipeFromArray(detailedRecipe: detailedRecipeDetails)
+        detailedRecipeDescriptionTextView.text = convertIntoStringDetailedRecipe(detailedRecipe: detailedRecipeDetails)
+        detailedRecipeDescriptionTextView.textColor = .white
         ratingLabel.text = String(rating)
         timerLabel.text = String(timer)
         detailedRecipeBackgroundImageView.load(imageURL: backgroundDetailedRecipeImageURL)

@@ -18,8 +18,9 @@ struct YummlyAPI {
     static let query = "&q="
 }
 
-struct YummlyDetailedRecipesAPI {
-    static let baseURL = "http://api.yummly.com/v1/api/recipes?"
+
+struct YummlyDetailedRecipeAPI {
+    static let baseURL = "http://api.yummly.com/v1/api/recipe/"
     static let appIDURL = "_app_id="
     static let appID = "c4496770"
     static let appKeyURL = "&_app_key="

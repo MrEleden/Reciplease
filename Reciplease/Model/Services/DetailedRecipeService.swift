@@ -11,10 +11,9 @@ import Alamofire
 
 class DetailedRecipeService {
     
-    func getDetailedRecipe(recipeID: String, completion: @escaping (Bool, DetailedRecipe?) -> Void) {
-        let url = YummlyAPI.baseURL + "\(recipeID)?" + YummlyAPI.appIDURL + YummlyAPI.appID + YummlyAPI.appKeyURL + YummlyAPI.appKey
+    func getDetailedRecipe(id: String, completion: @escaping (Bool, DetailedRecipe?) -> Void) {
+        let url = YummlyDetailedRecipeAPI.baseURL + "\(id)?" + YummlyDetailedRecipeAPI.appIDURL + YummlyDetailedRecipeAPI.appID + YummlyDetailedRecipeAPI.appKeyURL + YummlyDetailedRecipeAPI.appKey
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default).responseJSON { response in
-            print(response)
             guard let data = response.data, response.error == nil else {
                 print(String(describing: response.error?.localizedDescription))
                 completion(false, nil)
@@ -23,7 +22,6 @@ class DetailedRecipeService {
                 print(String(describing: response.error?.localizedDescription))
                 completion(false, nil)
                 return }
-            print(detailedRecipeResponseJSON)
             completion(true, detailedRecipeResponseJSON)
         }
     }

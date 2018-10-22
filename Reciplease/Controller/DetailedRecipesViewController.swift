@@ -16,12 +16,7 @@ class DetailedRecipesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTime, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
+        detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTimeInSeconds / 60, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
     }
-    
-
-    
-    
-    
 }
 

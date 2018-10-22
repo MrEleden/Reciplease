@@ -9,7 +9,7 @@
 import Foundation
 
 struct DetailedRecipe: Decodable {
-    let totalTime: Int
+    let totalTimeInSeconds: Int
     let images: [Images]
     let name: String
     let source: Source

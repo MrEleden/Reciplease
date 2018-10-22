@@ -12,7 +12,6 @@ extension UIImageView {
     func load(imageURL: String?) {
         guard let urlImageString = imageURL else { return }
         guard let urlImage = URL(string: urlImageString) else { return }
-        
         DispatchQueue.global().async { [weak self] in
             guard let imageData = try? Data(contentsOf: urlImage) else { return }
             if let image = UIImage(data: imageData) {

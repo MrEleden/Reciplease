@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class ResultRecipesListViewController: UIViewController {
 
@@ -28,13 +27,14 @@ class ResultRecipesListViewController: UIViewController {
         resultRecipeListTableView.reloadData()
     }
 
-    private func getDetailsForRecipe(recipeID: String) {
-        detailedRecipeService.getDetailedRecipe(recipeID: recipeID) { (success, detailedRecipe)  in
+    private func getDetailsForRecipe(id: String) {
+        detailedRecipeService.getDetailedRecipe(id: id) { (success, detailedRecipe)  in
             //self.toggleActivityIndicator(shown: true)
-            if success, let detailedRecipe = detailedRecipe {
+            if success {
                 self.detailedRecipe = detailedRecipe
+                //print(detailedRecipe)
                 self.performSegue(withIdentifier: "detailedRecipeSegue", sender: self)
-                //  self.toggleActivityIndicator(shown: false)
+                //self.toggleActivityIndicator(shown: false)
             } else {
                 self.showAlert(title: "Error", message: "Recipes Details data download failed!")
             }
@@ -67,7 +67,7 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
             return UITableViewCell()
         }
     
-        cell.configure(recipeName: matchingRecipes[indexPath.row].recipeName,
+        cell.cellConfigure(recipeName: matchingRecipes[indexPath.row].recipeName,
                        recipeDetails: matchingRecipes[indexPath.row].ingredients,
                        ratings: matchingRecipes[indexPath.row].rating,
                        timer: matchingRecipes[indexPath.row].totalTimeInSeconds / 60,
@@ -77,8 +77,7 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let index = resultRecipeListTableView.indexPathForSelectedRow?.row else { return }
-        getDetailsForRecipe(recipeID: matchingRecipes[index].id)
+        getDetailsForRecipe(id: matchingRecipes[indexPath.row].id)
     }
 }
 
