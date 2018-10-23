@@ -36,7 +36,7 @@ class DetailedRecipeView: UIView {
         detailedRecipeNameLabel.text = detailedRecipeName
         detailedRecipeDescriptionTextView.text = convertIntoStringDetailedRecipe(detailedRecipe: detailedRecipeDetails)
         ratingLabel.text = String(rating)
-        timerLabel.text = String(timer) + "m."
+        timerLabel.text = String(timer) + " min"
         detailedRecipeBackgroundImageView.load(imageURL: backgroundDetailedRecipeImageURL)
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.init(red: 222/255, green: 225/255, blue: 227/255, alpha: 1).cgColor

@@ -63,7 +63,7 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
         guard let cell = resultRecipeListTableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
             return UITableViewCell()
         }
-    
+        cell.selectionStyle = .none
         cell.cellConfigure(recipeName: matchingRecipes[indexPath.row].recipeName,
                        recipeDetails: matchingRecipes[indexPath.row].ingredients,
                        ratings: matchingRecipes[indexPath.row].rating,
