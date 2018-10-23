@@ -13,8 +13,8 @@ class ResultRecipesListViewController: UIViewController {
     @IBOutlet weak var resultRecipeListTableView: UITableView!
     
     var matchingRecipes = [Matches]()
-    var detailedRecipeService = DetailedRecipeService()
     var detailedRecipe: DetailedRecipe!
+    var detailedRecipeService = DetailedRecipeService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +24,14 @@ class ResultRecipesListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        resultRecipeListTableView.reloadData()
+        //resultRecipeListTableView.reloadData()
     }
-
+    
     private func getDetailsForRecipe(id: String) {
         detailedRecipeService.getDetailedRecipe(id: id) { (success, detailedRecipe)  in
-            //self.toggleActivityIndicator(shown: true)
             if success {
                 self.detailedRecipe = detailedRecipe
                 self.performSegue(withIdentifier: "detailedRecipeSegue", sender: self)
-                //self.toggleActivityIndicator(shown: false)
             } else {
                 self.showAlert(title: "Error", message: "Recipes Details data download failed!")
             }

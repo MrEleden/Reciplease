@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailedRecipeView: UIView {
+    
     @IBOutlet weak var detailedRecipeBackgroundImageView: UIImageView!
     @IBOutlet weak var detailedRecipeNameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -16,13 +17,19 @@ class DetailedRecipeView: UIView {
     @IBOutlet weak var detailedRecipeDescriptionTextView: UITextView!
     @IBOutlet weak var getDirectionsButton: UIButton!
     @IBOutlet weak var view: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {
+    private func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {
         var descriptions = ""
         for recipeDescription in detailedRecipe {
             descriptions += "- " + recipeDescription + "\n"
         }
         return descriptions
+    }
+    
+    func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+        getDirectionsButton.isHidden = shown
     }
     
     func detailedRecipeConfigure(detailedRecipeName: String, detailedRecipeDetails: [String], rating: Int, timer: Int, backgroundDetailedRecipeImageURL: String) {
