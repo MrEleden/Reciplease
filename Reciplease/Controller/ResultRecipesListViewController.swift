@@ -18,13 +18,12 @@ class ResultRecipesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setResultRecipesTableViewRowHeight()
-        self.navigationItem.title = "List of Recipes"
+        setResultRecipesTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //resultRecipeListTableView.reloadData()
+        resultRecipeListTableView.reloadData()
     }
     
     private func getDetailsForRecipe(id: String) {
@@ -38,7 +37,8 @@ class ResultRecipesListViewController: UIViewController {
         }
     }
     
-    private func setResultRecipesTableViewRowHeight() {
+    private func setResultRecipesTableView() {
+        self.navigationItem.title = "List of Recipes"
         resultRecipeListTableView.rowHeight = 120
     }
     

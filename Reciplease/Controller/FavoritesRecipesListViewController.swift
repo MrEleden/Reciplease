@@ -16,15 +16,13 @@ class FavoritesRecipesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "List of Favorites Recipes"
+        setFavoritesRecipesTableView()
     }
     
-    
-    
-    
-    
-    
-    
+    private func setFavoritesRecipesTableView() {
+        self.navigationItem.title = "List of Favorites Recipes"
+        favoritesRecipesListTableView.rowHeight = 120
+    }
 }
 
 extension FavoritesRecipesListViewController: UITableViewDataSource {
@@ -40,14 +38,13 @@ extension FavoritesRecipesListViewController: UITableViewDataSource {
         guard let cell = favoritesRecipesListTableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
             return UITableViewCell()
         }
-        
+        cell.selectionStyle = .none
         cell.cellConfigure(recipeName: favoritesRecipes[indexPath.row].recipeName,
                            recipeDetails: favoritesRecipes[indexPath.row].ingredients,
                            ratings: favoritesRecipes[indexPath.row].rating,
                            timer: favoritesRecipes[indexPath.row].totalTimeInSeconds / 60,
                            backgroundRecipeImageURL:
             favoritesRecipes[indexPath.row].imageUrlsBySize.image)
-        
         return cell
     }
     

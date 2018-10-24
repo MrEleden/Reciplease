@@ -26,29 +26,25 @@ class DetailedRecipesViewController: UIViewController {
     @IBAction func getDirections(_ sender: Any) {
         getDirectionsFromSourceRecipeURL()
     }
-    
-    private func setupNavigationRightBarButtonItem() {
-        let fave_button = UIBarButtonItem(image: UIImage(named: "noFavorite"), style: .plain, target: self, action: #selector(addToFavorite))
-        let faved_button = UIBarButtonItem(image: UIImage(named: "favorite"), style: .plain, target: self, action: #selector(removeFromFavorite))
-        if isFavorite {
-            navigationItem.rightBarButtonItem = faved_button
-        } else {
-            navigationItem.rightBarButtonItem = fave_button
-        }
-    }
-    
+
     @objc private func addToFavorite() {
-        let faved_button = UIBarButtonItem(image: UIImage(named: "favorite"), style: .plain, target: self, action: #selector(removeFromFavorite))
-        navigationItem.rightBarButtonItem = faved_button
-        isFavorite = true
+        let noFavoriteButton = UIBarButtonItem(image: UIImage(named: "favorite"), style: .plain, target: self, action: #selector(removeFromFavorite))
+        navigationItem.rightBarButtonItem = noFavoriteButton
     }
     
     @objc private func removeFromFavorite() {
-        let fave_button = UIBarButtonItem(image: UIImage(named: "noFavorite"), style: .plain, target: self, action: #selector(addToFavorite))
-        navigationItem.rightBarButtonItem = fave_button
-        isFavorite = false
+        let favoriteButton = UIBarButtonItem(image: UIImage(named: "noFavorite"), style: .plain, target: self, action: #selector(addToFavorite))
+        navigationItem.rightBarButtonItem = favoriteButton
     }
     
+    private func setupNavigationRightBarButtonItem() {
+        if isFavorite {
+            addToFavorite()
+        } else {
+            removeFromFavorite()
+        }
+    }
+
     private func getDirectionsFromSourceRecipeURL() {
         if let detailedRecipe = detailedRecipe {
             let detailedRecipeURL = URL(string: detailedRecipe.source.sourceRecipeUrl)
@@ -63,4 +59,10 @@ class DetailedRecipesViewController: UIViewController {
         detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTimeInSeconds / 60, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
     }
 }
+
+
+
+
+
+
 
