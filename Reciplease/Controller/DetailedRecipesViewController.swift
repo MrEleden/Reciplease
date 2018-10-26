@@ -14,6 +14,7 @@ class DetailedRecipesViewController: UIViewController {
     @IBOutlet weak var detailedRecipeView: DetailedRecipeView!
     
     var detailedRecipe: DetailedRecipe!
+    var favoriteRecipe = FavoriteRecipe.all
     var isFavorite = false
     
     override func viewDidLoad() {
@@ -30,6 +31,7 @@ class DetailedRecipesViewController: UIViewController {
     @objc private func addToFavorite() {
         let noFavoriteButton = UIBarButtonItem(image: UIImage(named: "favorite"), style: .plain, target: self, action: #selector(removeFromFavorite))
         navigationItem.rightBarButtonItem = noFavoriteButton
+        saveFavoriteRecipe()
     }
     
     @objc private func removeFromFavorite() {
@@ -57,6 +59,26 @@ class DetailedRecipesViewController: UIViewController {
     
     private func setUI() {
         detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTimeInSeconds / 60, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
+    }
+    
+    private func saveFavoriteRecipe() {
+        let favoritesRecipes = FavoriteRecipe(context: AppDelegate.viewContext)
+        favoritesRecipes.image = detailedRecipe.images[0].hostedLargeUrl
+        favoritesRecipes.recipeName = detailedRecipe.name
+        for ingredient in detailedRecipe.ingredientLines {
+            favoritesRecipes.ingredients = ingredient
+        }
+        favoritesRecipes.rating = Int16(detailedRecipe.rating)
+        favoritesRecipes.totalTimeInSeconds = Int16(detailedRecipe.totalTimeInSeconds)
+        saveContext()
+    }
+    
+    private func saveContext() {
+        do {
+            try AppDelegate.viewContext.save()
+        } catch let error as NSError {
+            print(error)
+        }
     }
 }
 
