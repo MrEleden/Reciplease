@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRb-FQ-BZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2225.625" y="59.154929577464792"/>
+            <point key="canvasLocation" x="2334" y="58"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="IZ7-AC-iH5">
@@ -286,7 +286,7 @@
                                             <outlet property="favoriteRecipeRatingLabel" destination="ukF-by-tuc" id="o8V-J8-FsE"/>
                                             <outlet property="favoriteRecipeTimerLabel" destination="4VN-R0-dUd" id="22x-mR-16T"/>
                                             <outlet property="view" destination="Daq-sH-YSV" id="v8H-dm-2HA"/>
-                                            <segue destination="Xtx-gh-KC9" kind="show" identifier="detailedFavoriteRecipeSegue" id="bEu-OT-lCf"/>
+                                            <segue destination="Xtx-gh-KC9" kind="show" identifier="detailedFavoriteRecipeSegue" id="v2b-YN-EBH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

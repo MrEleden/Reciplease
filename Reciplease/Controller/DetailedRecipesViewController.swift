@@ -21,7 +21,7 @@ class DetailedRecipesViewController: UIViewController {
         super.viewDidLoad()
         detailedRecipeView.toggleActivityIndicator(shown: false)
         setupNavigationRightBarButtonItem()
-        setUI()
+        setDetailedRecipeUI()
     }
     
     @IBAction func getDirections(_ sender: Any) {
@@ -57,7 +57,7 @@ class DetailedRecipesViewController: UIViewController {
         }
     }
     
-    private func setUI() {
+    private func setDetailedRecipeUI() {
         detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTimeInSeconds / 60, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
     }
     
