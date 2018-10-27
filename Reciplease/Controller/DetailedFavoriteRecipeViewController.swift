@@ -45,9 +45,19 @@ class DetailedFavoriteRecipeViewController: UIViewController {
             removeFromFavorite()
         }
     }
-
+    
     private func setDetailedFavoriteRecipeUI() {
-        detailedFavoriteRecipeView.detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: detailedFavoriteRecipe.recipeName!, detailedFavoriteRecipeDetails: , rating: Int(detailedFavoriteRecipe.rating), timer: Int(detailedFavoriteRecipe.totalTimeInSeconds / 60), backgroundDetailedFavoriteRecipeImageURL: detailedFavoriteRecipe.image!)
+     
+        detailedFavoriteRecipeView.detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: detailedFavoriteRecipe.recipeName!, detailedFavoriteRecipeDetails: self.convertDetailedFavoriteRecipeIngredients(detailedFavoriteRecipeIngredients: detailedFavoriteRecipe.ingredients!), rating: Int(detailedFavoriteRecipe.rating), timer: Int(detailedFavoriteRecipe.totalTimeInSeconds / 60), backgroundDetailedFavoriteRecipeImageURL: detailedFavoriteRecipe.image!)
+    }
+    
+    private func convertDetailedFavoriteRecipeIngredients(detailedFavoriteRecipeIngredients: String) -> String {
+        var description = ""
+        let detailedFavoriteRecipeIngredientsArray = detailedFavoriteRecipeIngredients.components(separatedBy: ", ")
+        for ingredients in detailedFavoriteRecipeIngredientsArray {
+            description += "- " + ingredients + "\n"
+        }
+        return description
     }
     
     private func getDirectionsFromSourceRecipeURL() {
