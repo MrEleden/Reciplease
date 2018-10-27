@@ -39,7 +39,6 @@ class ResultRecipesListViewController: UIViewController {
     
     private func setResultRecipesTableView() {
         self.navigationItem.title = "List of Recipes"
-        resultRecipeListTableView.rowHeight = 120
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,6 +72,10 @@ extension ResultRecipesListViewController: UITableViewDelegate, UITableViewDataS
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         getDetailsForRecipe(id: matchingRecipes[indexPath.row].id)
     }

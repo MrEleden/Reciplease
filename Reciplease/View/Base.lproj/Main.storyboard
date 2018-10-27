@@ -286,7 +286,7 @@
                                             <outlet property="favoriteRecipeRatingLabel" destination="ukF-by-tuc" id="o8V-J8-FsE"/>
                                             <outlet property="favoriteRecipeTimerLabel" destination="4VN-R0-dUd" id="22x-mR-16T"/>
                                             <outlet property="view" destination="Daq-sH-YSV" id="v8H-dm-2HA"/>
-                                            <segue destination="Xtx-gh-KC9" kind="show" identifier="detailedFavoriteRecipeSegue" id="v2b-YN-EBH"/>
+                                            <segue destination="Xtx-gh-KC9" kind="show" identifier="detailedFavoriteRecipeSegue" id="nvx-4I-TQg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

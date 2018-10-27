@@ -27,7 +27,6 @@ class FavoritesRecipesListViewController: UIViewController {
     
     private func setFavoritesRecipesTableView() {
         self.navigationItem.title = "List of Favorites Recipes"
-        favoritesRecipesListTableView.rowHeight = 120
     }
     
     private func saveContext() {
@@ -39,14 +38,16 @@ class FavoritesRecipesListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailedFavoriteRecipeSegue" {
-            let detailedFavoriteRecipeVC = segue.destination as! DetailedFavoriteRecipeViewController
-            detailedFavoriteRecipeVC.detailedFavoriteRecipe = sender as? FavoriteRecipe
+        if segue.identifier == "detailedFavoriteRecipeSegue",
+            let detailedFavoriteRecipeVC = segue.destination as? DetailedFavoriteRecipeViewController,
+            let indexPath = self.favoritesRecipesListTableView.indexPathForSelectedRow {
+            let selectedFavoriteRecipe = favoritesRecipes[indexPath.row]
+            detailedFavoriteRecipeVC.detailedFavoriteRecipe = selectedFavoriteRecipe
         }
     }
 }
 
-extension FavoritesRecipesListViewController: UITableViewDataSource {
+extension FavoritesRecipesListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -55,12 +56,17 @@ extension FavoritesRecipesListViewController: UITableViewDataSource {
         return favoritesRecipes.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = favoritesRecipesListTableView.dequeueReusableCell(withIdentifier: "favoriteRecipeCell", for: indexPath) as? FavoriteRecipeTableViewCell else {
             return UITableViewCell()
         }
+        let favoriteRecipe = favoritesRecipes[indexPath.row]
         cell.selectionStyle = .none
-        cell.favoriteRecipeCellConfigure(favoriteRecipeName: favoritesRecipes[indexPath.row].recipeName!, favoriteRecipeDetails: favoritesRecipes[indexPath.row].ingredients!, ratings: Int(favoritesRecipes[indexPath.row].rating), timer: Int(favoritesRecipes[indexPath.row].totalTimeInSeconds) / 60, backgroundRecipeImageURL: favoritesRecipes[indexPath.row].image!)
+        cell.favoriteRecipeCellConfigure(favoriteRecipeName: favoriteRecipe.recipeName!, favoriteRecipeDetails: favoriteRecipe.ingredients!, ratings: Int(favoriteRecipe.rating), timer: Int(favoriteRecipe.totalTimeInSeconds) / 60, backgroundRecipeImageURL: favoriteRecipe.image!)
         return cell
     }
     
@@ -73,11 +79,6 @@ extension FavoritesRecipesListViewController: UITableViewDataSource {
             favoritesRecipesListTableView.deleteRows(at: [indexPath], with: .automatic)
             favoritesRecipesListTableView.endUpdates()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = favoritesRecipesListTableView.cellForRow(at: indexPath) as? FavoriteRecipeTableViewCell else { return }
-        self.performSegue(withIdentifier: "detailedFavoriteRecipeSegue", sender: cell.favoriteRecipeCellConfigure(favoriteRecipeName: favoritesRecipes[indexPath.row].recipeName!, favoriteRecipeDetails: favoritesRecipes[indexPath.row].ingredients!, ratings: Int(favoritesRecipes[indexPath.row].rating), timer: Int(favoritesRecipes[indexPath.row].totalTimeInSeconds) / 60, backgroundRecipeImageURL: favoritesRecipes[indexPath.row].image!))
     }
 }
 

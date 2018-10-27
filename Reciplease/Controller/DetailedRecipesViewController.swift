@@ -60,17 +60,21 @@ class DetailedRecipesViewController: UIViewController {
     private func setDetailedRecipeUI() {
         detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTimeInSeconds / 60, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
     }
-    
+
     private func saveFavoriteRecipe() {
         let favoritesRecipes = FavoriteRecipe(context: AppDelegate.viewContext)
         favoritesRecipes.image = detailedRecipe.images[0].hostedLargeUrl
         favoritesRecipes.recipeName = detailedRecipe.name
-        for ingredient in detailedRecipe.ingredientLines {
-            favoritesRecipes.ingredients = ingredient
-        }
+        favoritesRecipes.ingredients = convertIngredientsArrayIntoString(ingredients: detailedRecipe.ingredientLines)
         favoritesRecipes.rating = Int16(detailedRecipe.rating)
         favoritesRecipes.totalTimeInSeconds = Int16(detailedRecipe.totalTimeInSeconds)
+        favoritesRecipes.sourceUrl = detailedRecipe.source.sourceRecipeUrl
         saveContext()
+    }
+    
+    private func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
+        let ingredientsArray = ingredients.map{ String($0) }
+        return ingredientsArray.joined(separator: ", ")
     }
     
     private func saveContext() {

@@ -18,23 +18,15 @@ class DetailedFavoriteRecipeView: UIView {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var getDirectionsButton: UIButton!
     @IBOutlet weak var blackView: UIView!
-
-    private func convertIntoStringDetailedFavoriteRecipe(detailedFavoriteRecipe: [String]) -> String {
-        var descriptions = ""
-        for recipeDescription in detailedFavoriteRecipe {
-            descriptions += "- " + recipeDescription + "\n"
-        }
-        return descriptions
-    }
     
     func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
         getDirectionsButton.isHidden = shown
     }
     
-    func detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: String, detailedFavoriteRecipeDetails: [String], rating: Int, timer: Int, backgroundDetailedFavoriteRecipeImageURL: String) {
+    func detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: String, detailedFavoriteRecipeDetails: String, rating: Int, timer: Int, backgroundDetailedFavoriteRecipeImageURL: String) {
         detailedFavoriteRecipeNameLabel.text = detailedFavoriteRecipeName
-        detailedFavoriteRecipeDescription.text = convertIntoStringDetailedFavoriteRecipe(detailedFavoriteRecipe: detailedFavoriteRecipeDetails)
+        detailedFavoriteRecipeDescription.text = detailedFavoriteRecipeDetails
         detailedFavoriteRecipeRatingLabel.text = String(rating)
         detailedFavoriteRecipeTimerLabel.text = String(timer) + " min"
         backgroundDetailedFavoriteRecipeImageView.load(imageURL: backgroundDetailedFavoriteRecipeImageURL)

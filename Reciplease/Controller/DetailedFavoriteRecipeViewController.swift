@@ -19,12 +19,13 @@ class DetailedFavoriteRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailedFavoriteRecipeView.toggleActivityIndicator(shown: false)
+        setupNavigationBarItemTintColor()
         setupNavigationRightBarButtonItem()
         setDetailedFavoriteRecipeUI()
     }
     
     @IBAction func getDirectionsButtonTapped(_ sender: Any) {
-        
+        getDirectionsFromSourceRecipeURL()
     }
     
     @objc private func addToFavorite() {
@@ -46,6 +47,20 @@ class DetailedFavoriteRecipeViewController: UIViewController {
     }
 
     private func setDetailedFavoriteRecipeUI() {
-//       TODO detailedFavoriteRecipeView.detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: <#T##String#>, detailedFavoriteRecipeDetails: <#T##[String]#>, rating: <#T##Int#>, timer: <#T##Int#>, backgroundDetailedFavoriteRecipeImageURL: <#T##String#>)
+        detailedFavoriteRecipeView.detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: detailedFavoriteRecipe.recipeName!, detailedFavoriteRecipeDetails: , rating: Int(detailedFavoriteRecipe.rating), timer: Int(detailedFavoriteRecipe.totalTimeInSeconds / 60), backgroundDetailedFavoriteRecipeImageURL: detailedFavoriteRecipe.image!)
+    }
+    
+    private func getDirectionsFromSourceRecipeURL() {
+        if let detailedFavoriteRecipe = detailedFavoriteRecipe {
+            let detailedFavoriteRecipeURL = URL(string: detailedFavoriteRecipe.sourceUrl!)
+            let safariVC = SFSafariViewController(url: detailedFavoriteRecipeURL!)
+            present(safariVC, animated: true, completion: nil)
+        } else {
+            showAlert(title: "Error", message: "Failed to get you any directions. Try again!")
+        }
+    }
+    
+    private func setupNavigationBarItemTintColor() {
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 }

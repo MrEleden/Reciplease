@@ -21,6 +21,7 @@ extension FavoriteRecipe {
     @NSManaged public var ingredients: String?
     @NSManaged public var rating: Int16
     @NSManaged public var recipeName: String?
+    @NSManaged public var sourceUrl: String?
     @NSManaged public var totalTimeInSeconds: Int16
 
 }
