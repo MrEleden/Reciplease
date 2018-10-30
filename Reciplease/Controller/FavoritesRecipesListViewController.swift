@@ -53,7 +53,25 @@ extension FavoritesRecipesListViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoritesRecipes.count
+        if favoritesRecipes.count > 0 {
+            favoritesRecipesListTableView.backgroundView = nil
+            favoritesRecipesListTableView.separatorStyle = .singleLine
+            return favoritesRecipes.count
+        } else {
+            let rect = CGRect(x: 0,
+                              y: 0,
+                              width: favoritesRecipesListTableView.bounds.size.width,
+                              height: favoritesRecipesListTableView.bounds.size.height)
+            let noFavoriteRecipeLabel: UILabel = UILabel(frame: rect)
+            noFavoriteRecipeLabel.text = "Hit the favorite button to add a recipe in your favorite list!"
+            noFavoriteRecipeLabel.textColor = UIColor.gray
+            noFavoriteRecipeLabel.font = UIFont.boldSystemFont(ofSize: 24)
+            noFavoriteRecipeLabel.numberOfLines = 0
+            noFavoriteRecipeLabel.textAlignment = NSTextAlignment.center
+            favoritesRecipesListTableView.backgroundView = noFavoriteRecipeLabel
+            favoritesRecipesListTableView.separatorStyle = .none
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

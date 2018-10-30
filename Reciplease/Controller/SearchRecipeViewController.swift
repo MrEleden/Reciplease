@@ -44,7 +44,7 @@ class SearchRecipeViewController: UIViewController {
     private func addIngredientIntoList() {
         guard let inputs = ingredientsTextField.text else { return }
         if inputs != "" {
-            let ingredients = inputs.components(separatedBy: ",")
+            let ingredients = inputs.components(separatedBy: ", ")
             for ingredient in ingredients {
                 let ingredientAddToList = ingredient
                 let ingredientName = ingredientAddToList

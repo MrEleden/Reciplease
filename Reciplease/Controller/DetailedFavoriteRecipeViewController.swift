@@ -20,30 +20,11 @@ class DetailedFavoriteRecipeViewController: UIViewController {
         super.viewDidLoad()
         detailedFavoriteRecipeView.toggleActivityIndicator(shown: false)
         setupNavigationBarItemTintColor()
-        setupNavigationRightBarButtonItem()
         setDetailedFavoriteRecipeUI()
     }
     
     @IBAction func getDirectionsButtonTapped(_ sender: Any) {
         getDirectionsFromSourceRecipeURL()
-    }
-    
-    @objc private func addToFavorite() {
-        let noFavoriteButton = UIBarButtonItem(image: UIImage(named: "favorite"), style: .plain, target: self, action: #selector(removeFromFavorite))
-        navigationItem.rightBarButtonItem = noFavoriteButton
-    }
-    
-    @objc private func removeFromFavorite() {
-        let favoriteButton = UIBarButtonItem(image: UIImage(named: "noFavorite"), style: .plain, target: self, action: #selector(addToFavorite))
-        navigationItem.rightBarButtonItem = favoriteButton
-    }
-    
-    private func setupNavigationRightBarButtonItem() {
-        if isFavorite {
-            addToFavorite()
-        } else {
-            removeFromFavorite()
-        }
     }
     
     private func setDetailedFavoriteRecipeUI() {

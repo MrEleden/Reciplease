@@ -202,7 +202,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vvm-WK-gg6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcL-HB-KZR">
                                                     <rect key="frame" x="10" y="65" width="47.5" height="26.5"/>
@@ -217,7 +217,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Daq-sH-YSV">
-                                                    <rect key="frame" x="249" y="15" width="56" height="56"/>
+                                                    <rect key="frame" x="343" y="15" width="56" height="56"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="IV4-Rh-bYL">
                                                             <rect key="frame" x="2" y="10" width="29" height="36"/>
@@ -494,10 +494,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="trH-Ys-8ZN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdN-vh-qCg">
-                                                    <rect key="frame" x="249" y="15" width="56" height="56"/>
+                                                    <rect key="frame" x="343" y="15" width="56" height="56"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-h9-Nc6">
                                                             <rect key="frame" x="2" y="10" width="27" height="36"/>
