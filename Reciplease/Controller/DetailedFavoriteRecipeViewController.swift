@@ -27,8 +27,17 @@ class DetailedFavoriteRecipeViewController: UIViewController {
         getDirectionsFromSourceRecipeURL()
     }
     
+    @IBAction func share(_ sender: UIButton) {
+        sharingRecipeNavigationLeftBarButtonItem()
+    }
+    
+    private func sharingRecipeNavigationLeftBarButtonItem() {
+        let activityController = UIActivityViewController(activityItems: ["Can you cook that for me?", detailedFavoriteRecipe.sourceUrl as Any], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
+    }
+    
     private func setDetailedFavoriteRecipeUI() {
-     
+        
         detailedFavoriteRecipeView.detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: detailedFavoriteRecipe.recipeName!, detailedFavoriteRecipeDetails: self.convertDetailedFavoriteRecipeIngredients(detailedFavoriteRecipeIngredients: detailedFavoriteRecipe.ingredients!), rating: Int(detailedFavoriteRecipe.rating), timer: Int(detailedFavoriteRecipe.totalTimeInSeconds / 60), backgroundDetailedFavoriteRecipeImageURL: detailedFavoriteRecipe.image!)
     }
     

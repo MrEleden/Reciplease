@@ -27,7 +27,16 @@ class DetailedRecipesViewController: UIViewController {
     @IBAction func getDirections(_ sender: Any) {
         getDirectionsFromSourceRecipeURL()
     }
-
+    
+    @IBAction func share(_ sender: UIButton) {
+        sharingRecipeNavigationLeftBarButtonItem()
+    }
+    
+    private func sharingRecipeNavigationLeftBarButtonItem() {
+        let activityController = UIActivityViewController(activityItems: ["Can you cook that for me?", detailedRecipe.source.sourceRecipeUrl], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
+    }
+    
     @objc private func addToFavorite() {
         let noFavoriteButton = UIBarButtonItem(image: UIImage(named: "favorite"), style: .plain, target: self, action: #selector(removeFromFavorite))
         navigationItem.rightBarButtonItem = noFavoriteButton
@@ -46,7 +55,7 @@ class DetailedRecipesViewController: UIViewController {
             removeFromFavorite()
         }
     }
-
+    
     private func getDirectionsFromSourceRecipeURL() {
         if let detailedRecipe = detailedRecipe {
             let detailedRecipeURL = URL(string: detailedRecipe.source.sourceRecipeUrl)
@@ -60,7 +69,7 @@ class DetailedRecipesViewController: UIViewController {
     private func setDetailedRecipeUI() {
         detailedRecipeView.detailedRecipeConfigure(detailedRecipeName: detailedRecipe.name, detailedRecipeDetails: detailedRecipe.ingredientLines, rating: detailedRecipe.rating, timer: detailedRecipe.totalTimeInSeconds / 60, backgroundDetailedRecipeImageURL: detailedRecipe.images[0].hostedLargeUrl)
     }
-
+    
     private func saveFavoriteRecipe() {
         let favoritesRecipes = FavoriteRecipe(context: AppDelegate.viewContext)
         favoritesRecipes.image = detailedRecipe.images[0].hostedLargeUrl
