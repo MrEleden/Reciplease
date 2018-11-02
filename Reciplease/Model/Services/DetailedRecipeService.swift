@@ -17,11 +17,16 @@ class DetailedRecipeService {
             guard let data = response.data, response.error == nil else {
                 print(String(describing: response.error?.localizedDescription))
                 completion(false, nil)
-                return }
-            guard let detailedRecipeResponseJSON = try? JSONDecoder().decode(DetailedRecipe.self, from: data) else {
-                print(String(describing: response.error?.localizedDescription))
+                return
+            }
+            guard let response = response.response, response.statusCode == 200 else {
                 completion(false, nil)
-                return }
+                return
+            }
+            guard let detailedRecipeResponseJSON = try? JSONDecoder().decode(DetailedRecipe.self, from: data) else {
+                completion(false, nil)
+                return
+            }
             completion(true, detailedRecipeResponseJSON)
         }
     }

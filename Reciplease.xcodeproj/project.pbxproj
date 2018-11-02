@@ -28,12 +28,12 @@
 		9592C5842167D24000206796 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592C5832167D24000206796 /* SearchRecipeViewController.swift */; };
 		95956035217F55CC00DB0F84 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95956033217F55CC00DB0F84 /* Reciplease.xcdatamodeld */; };
 		95956039217F5F4600DB0F84 /* FavoritesRecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95956038217F5F4600DB0F84 /* FavoritesRecipesListViewController.swift */; };
+		95B1867B218C9B4000F05B08 /* SearchRecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1867A218C9B4000F05B08 /* SearchRecipeTests.swift */; };
 		95C691EC216B993000BEB718 /* SearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C691EB216B993000BEB718 /* SearchRecipe.swift */; };
 		95C691EF216BA25700BEB718 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C691EE216BA25700BEB718 /* UIViewController.swift */; };
 		95C84C142188B42300B02AA3 /* SearchRecipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 95C84C132188B42300B02AA3 /* SearchRecipe.json */; };
 		95C84C162188B64500B02AA3 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C84C152188B64500B02AA3 /* FakeResponseData.swift */; };
 		95DD0856218A3A280002CA44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DD0854218A3A280002CA44 /* LaunchScreen.storyboard */; };
-		95E0B24F2163B2BA00749AA5 /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */; };
 		B20E113F6813742DA201B61D /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB038CC63294BF5592154F92 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,12 +75,12 @@
 		9592C5832167D24000206796 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
 		95956034217F55CC00DB0F84 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		95956038217F5F4600DB0F84 /* FavoritesRecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRecipesListViewController.swift; sourceTree = "<group>"; };
+		95B1867A218C9B4000F05B08 /* SearchRecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeTests.swift; sourceTree = "<group>"; };
 		95C691EB216B993000BEB718 /* SearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipe.swift; sourceTree = "<group>"; };
 		95C691EE216BA25700BEB718 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95C84C132188B42300B02AA3 /* SearchRecipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchRecipe.json; sourceTree = "<group>"; };
 		95C84C152188B64500B02AA3 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		95DD0855218A3A280002CA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 		CB038CC63294BF5592154F92 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,8 +264,8 @@
 		95C84C112188B3D900B02AA3 /* SearchRecipe */ = {
 			isa = PBXGroup;
 			children = (
-				95E0B24E2163B2BA00749AA5 /* SearchServiceTests.swift */,
 				95C84C132188B42300B02AA3 /* SearchRecipe.json */,
+				95B1867A218C9B4000F05B08 /* SearchRecipeTests.swift */,
 			);
 			path = SearchRecipe;
 			sourceTree = "<group>";
@@ -280,9 +280,9 @@
 		95E0B2442163B15A00749AA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95C84C152188B64500B02AA3 /* FakeResponseData.swift */,
 				95C84C112188B3D900B02AA3 /* SearchRecipe */,
 				95C84C122188B3F600B02AA3 /* DetailedRecipe */,
-				95C84C152188B64500B02AA3 /* FakeResponseData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,8 +467,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95E0B24F2163B2BA00749AA5 /* SearchServiceTests.swift in Sources */,
 				95C84C162188B64500B02AA3 /* FakeResponseData.swift in Sources */,
+				95B1867B218C9B4000F05B08 /* SearchRecipeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +559,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 			};
 			name = Debug;
 		};
@@ -613,7 +616,10 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -664,15 +670,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = RecipleaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christophedurand.RecipleaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RecipleaseTests/Model/RecipleaseTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -688,15 +696,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = RecipleaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christophedurand.RecipleaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RecipleaseTests/Model/RecipleaseTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciplease.app/Reciplease";
