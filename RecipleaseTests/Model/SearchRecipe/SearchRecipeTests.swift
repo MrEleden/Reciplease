@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Alamofire 
+import Alamofire
 @testable import Reciplease
 
 class SearchRecipeTests: XCTestCase {
@@ -18,7 +18,7 @@ class SearchRecipeTests: XCTestCase {
         
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        searchRecipeService.getRecipe(ingredients: ["lemon"]) { (success, recipe) in
+        searchRecipeService.getRecipe(ingredients: []) { (success, recipe) in
             //Then
             XCTAssertFalse(success)
             XCTAssertNil(recipe)

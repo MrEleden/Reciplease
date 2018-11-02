@@ -5,5 +5,8 @@ use_frameworks!
 target 'Reciplease' do
     pod 'Alamofire', '~> 4.7'
 end
+target 'RecipleaseTests' do
+    pod 'Alamofire', '~> 4.7'
+end
 
 
