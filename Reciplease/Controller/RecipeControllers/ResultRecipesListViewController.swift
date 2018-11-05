@@ -10,12 +10,15 @@ import UIKit
 
 class ResultRecipesListViewController: UIViewController {
 
+    //MARK: - Outlet
     @IBOutlet weak var resultRecipeListTableView: UITableView!
     
+    //MARK: - Properties
     var matchingRecipes = [Matches]()
     var detailedRecipe: DetailedRecipe!
     var detailedRecipeService = DetailedRecipeService()
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setResultRecipesTableView()
@@ -26,6 +29,7 @@ class ResultRecipesListViewController: UIViewController {
         resultRecipeListTableView.reloadData()
     }
     
+    //MARK: - Methods
     private func getDetailsForRecipe(id: String) {
         detailedRecipeService.getDetailedRecipe(id: id) { (success, detailedRecipe)  in
             if success {

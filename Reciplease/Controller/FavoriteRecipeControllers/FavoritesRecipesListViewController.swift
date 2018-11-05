@@ -10,10 +10,13 @@ import UIKit
 
 class FavoritesRecipesListViewController: UIViewController {
     
+    //MARK: - Outlet
     @IBOutlet weak var favoritesRecipesListTableView: UITableView!
     
+    //MARK: - Property
     var favoritesRecipes = FavoriteRecipe.all
 
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setFavoritesRecipesTableView()
@@ -25,6 +28,7 @@ class FavoritesRecipesListViewController: UIViewController {
         favoritesRecipesListTableView.reloadData()
     }
     
+    //MARK: - Methods
     private func setFavoritesRecipesTableView() {
         self.navigationItem.title = "List of Favorites Recipes"
     }
@@ -53,25 +57,21 @@ extension FavoritesRecipesListViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if favoritesRecipes.count > 0 {
-            favoritesRecipesListTableView.backgroundView = nil
-            favoritesRecipesListTableView.separatorStyle = .singleLine
-            return favoritesRecipes.count
-        } else {
-            let rect = CGRect(x: 0,
-                              y: 0,
-                              width: favoritesRecipesListTableView.bounds.size.width,
-                              height: favoritesRecipesListTableView.bounds.size.height)
-            let noFavoriteRecipeLabel: UILabel = UILabel(frame: rect)
-            noFavoriteRecipeLabel.text = "Hit the favorite button to add a recipe in your favorite list!"
-            noFavoriteRecipeLabel.textColor = UIColor.gray
-            noFavoriteRecipeLabel.font = UIFont.boldSystemFont(ofSize: 24)
-            noFavoriteRecipeLabel.numberOfLines = 0
-            noFavoriteRecipeLabel.textAlignment = NSTextAlignment.center
-            favoritesRecipesListTableView.backgroundView = noFavoriteRecipeLabel
-            favoritesRecipesListTableView.separatorStyle = .none
-            return 0
-        }
+        return favoritesRecipes.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Hit the favorite button to add a recipe in your favorite list!"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .gray
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return favoritesRecipes.isEmpty ? 200 : 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

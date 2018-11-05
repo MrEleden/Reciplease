@@ -10,6 +10,7 @@ import UIKit
 
 class SearchRecipeViewController: UIViewController {
 
+    //MARK: - Outlets
     @IBOutlet weak var ingredientsTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var ingredientsTableView: UITableView!
@@ -17,10 +18,12 @@ class SearchRecipeViewController: UIViewController {
     @IBOutlet weak var searchForRecipesButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    //MARK: - Properties
     var ingredients: [String] = []
     var matchingRecipes: [Matches] = []
     var searchRecipeService = SearchRecipeService()
    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         ingredientsTextField.setBottomBorder()
@@ -29,6 +32,7 @@ class SearchRecipeViewController: UIViewController {
         registerIngredientsTableView()
     }
     
+    //MARK: - Actions
     @IBAction func add(_ sender: UIButton) {
         addIngredientIntoList()
     }
@@ -41,6 +45,7 @@ class SearchRecipeViewController: UIViewController {
         searchRecipe()
     }
 
+    //MARK: - Methods
     private func addIngredientIntoList() {
         guard let inputs = ingredientsTextField.text else { return }
         if inputs != "" {

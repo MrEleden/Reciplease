@@ -7,15 +7,17 @@
 //
 
 import UIKit
-import SafariServices
 
 class DetailedFavoriteRecipeViewController: UIViewController {
     
+    //MARK: - Outlet
     @IBOutlet var detailedFavoriteRecipeView: DetailedFavoriteRecipeView!
     
+    //MARK: - Properties
     var detailedFavoriteRecipe: FavoriteRecipe!
     var isFavorite = false
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         detailedFavoriteRecipeView.toggleActivityIndicator(shown: false)
@@ -23,15 +25,17 @@ class DetailedFavoriteRecipeViewController: UIViewController {
         setDetailedFavoriteRecipeUI()
     }
     
+    //MARK: - Actions
     @IBAction func getDirectionsButtonTapped(_ sender: Any) {
         getDirectionsFromSourceRecipeURL()
     }
     
     @IBAction func share(_ sender: UIButton) {
-        sharingRecipeNavigationLeftBarButtonItem()
+        sharingRecipeButtonTapped()
     }
     
-    private func sharingRecipeNavigationLeftBarButtonItem() {
+    //MARK: - Methods
+    private func sharingRecipeButtonTapped() {
         let activityController = UIActivityViewController(activityItems: ["Can you cook that for me?", detailedFavoriteRecipe.sourceUrl as Any], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
@@ -52,9 +56,8 @@ class DetailedFavoriteRecipeViewController: UIViewController {
     
     private func getDirectionsFromSourceRecipeURL() {
         if let detailedFavoriteRecipe = detailedFavoriteRecipe {
-            let detailedFavoriteRecipeURL = URL(string: detailedFavoriteRecipe.sourceUrl!)
-            let safariVC = SFSafariViewController(url: detailedFavoriteRecipeURL!)
-            present(safariVC, animated: true, completion: nil)
+            guard let url = URL(string: detailedFavoriteRecipe.sourceUrl!) else { return }
+            UIApplication.shared.open(url)
         } else {
             showAlert(title: "Error", message: "Failed to get you any directions. Try again!")
         }

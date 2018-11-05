@@ -10,6 +10,7 @@ import UIKit
 
 class FavoriteRecipeTableViewCell: UITableViewCell {
     
+    //MARK: - Outlets
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var favoriteRecipeNameLabel: UILabel!
     @IBOutlet weak var favoriteRecipeDetailsLabel: UILabel!
@@ -17,6 +18,7 @@ class FavoriteRecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteRecipeRatingLabel: UILabel!
     @IBOutlet weak var favoriteRecipeTimerLabel: UILabel!
     
+    //MARK: - Method
     func favoriteRecipeCellConfigure(favoriteRecipeName: String, favoriteRecipeDetails: String, ratings: Int, timer: Int, backgroundRecipeImageURL: String) {
         favoriteRecipeNameLabel.text = favoriteRecipeName
         favoriteRecipeDetailsLabel.text = favoriteRecipeDetails

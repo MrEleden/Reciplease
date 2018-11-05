@@ -19,6 +19,7 @@ extension FavoriteRecipe {
     @NSManaged public var id: String?
     @NSManaged public var image: String?
     @NSManaged public var ingredients: String?
+    @NSManaged public var isFavorite: Bool
     @NSManaged public var rating: Int16
     @NSManaged public var recipeName: String?
     @NSManaged public var sourceUrl: String?

@@ -10,6 +10,7 @@ import UIKit
 
 class DetailedRecipeView: UIView {
     
+    //MARK: - Outlets
     @IBOutlet weak var detailedRecipeBackgroundImageView: UIImageView!
     @IBOutlet weak var detailedRecipeNameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -19,6 +20,7 @@ class DetailedRecipeView: UIView {
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    //MARK: - Methods
     private func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {
         var descriptions = ""
         for recipeDescription in detailedRecipe {

@@ -12,21 +12,6 @@ import Alamofire
 
 class SearchRecipeTests: XCTestCase {
     
-    func testGetRecipeShouldGetFailedCompletionIfError() {
-        //Given
-        let searchRecipeService = SearchRecipeService()
-        
-        //When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        searchRecipeService.getRecipe(ingredients: []) { (success, recipe) in
-            //Then
-            XCTAssertFalse(success)
-            XCTAssertNil(recipe)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 5)
-    }
-    
     func testGetRecipeShouldGetSuccessCompletionIfNoErrorAndCorrectData() {
         // Given
         let searchRecipeService = SearchRecipeService()

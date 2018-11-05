@@ -16,4 +16,6 @@ public class FavoriteRecipe: NSManagedObject {
         guard let favoritesRecipes = try? AppDelegate.viewContext.fetch(request) else { return [] }
         return favoritesRecipes
     }
+    
+    
 }

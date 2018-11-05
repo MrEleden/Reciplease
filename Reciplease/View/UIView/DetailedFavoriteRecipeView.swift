@@ -10,6 +10,7 @@ import UIKit
 
 class DetailedFavoriteRecipeView: UIView {
 
+    //MARK: - Outlets
     @IBOutlet weak var backgroundDetailedFavoriteRecipeImageView: UIImageView!
     @IBOutlet weak var detailedFavoriteRecipeNameLabel: UILabel!
     @IBOutlet weak var detailedFavoriteRecipeRatingLabel: UILabel!
@@ -19,6 +20,7 @@ class DetailedFavoriteRecipeView: UIView {
     @IBOutlet weak var getDirectionsButton: UIButton!
     @IBOutlet weak var blackView: UIView!
     
+    //MARK: - Methods
     func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
         getDirectionsButton.isHidden = shown

@@ -10,6 +10,7 @@ import UIKit
 
 class RecipeTableViewCell: UITableViewCell {
 
+    //MARK: - Outlets
     @IBOutlet weak var recipeBackgroundImage: UIImageView!
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeDetailsLabel: UILabel!
@@ -19,6 +20,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var timerImageView: UIImageView!
     @IBOutlet weak var view: UIView!
     
+    //MARK: - Methods
     private func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
         let ingredientsArray = ingredients.map{ String($0) }
         return ingredientsArray.joined(separator: ", ")
