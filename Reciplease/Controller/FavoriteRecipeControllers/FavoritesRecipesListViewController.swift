@@ -15,7 +15,7 @@ class FavoritesRecipesListViewController: UIViewController {
     
     //MARK: - Property
     var favoritesRecipes = FavoriteRecipe.all
-
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()

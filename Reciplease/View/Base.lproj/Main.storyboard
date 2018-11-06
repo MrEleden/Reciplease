@@ -170,6 +170,17 @@
                             <outlet property="getDirectionsButton" destination="5OM-vh-wBn" id="J00-FI-QjG"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="HJD-ry-1e0">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="JRd-hj-rhC">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bQF-cV-uAK">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailedFavoriteRecipeView" destination="BUT-Uq-Gcv" id="Hie-a3-5eV"/>
                     </connections>
@@ -215,7 +226,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vvm-WK-gg6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcL-HB-KZR">
                                                     <rect key="frame" x="10" y="65" width="47.5" height="26.5"/>
@@ -230,7 +241,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Daq-sH-YSV">
-                                                    <rect key="frame" x="249" y="15" width="56" height="56"/>
+                                                    <rect key="frame" x="304" y="15" width="56" height="56"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="IV4-Rh-bYL">
                                                             <rect key="frame" x="2" y="10" width="29" height="36"/>
@@ -299,7 +310,7 @@
                                             <outlet property="favoriteRecipeRatingLabel" destination="ukF-by-tuc" id="o8V-J8-FsE"/>
                                             <outlet property="favoriteRecipeTimerLabel" destination="4VN-R0-dUd" id="22x-mR-16T"/>
                                             <outlet property="view" destination="Daq-sH-YSV" id="v8H-dm-2HA"/>
-                                            <segue destination="Xtx-gh-KC9" kind="show" identifier="detailedFavoriteRecipeSegue" id="nvx-4I-TQg"/>
+                                            <segue destination="Xtx-gh-KC9" kind="show" identifier="detailedFavoriteRecipeSegue" id="w8a-II-byY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -507,10 +518,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="trH-Ys-8ZN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdN-vh-qCg">
-                                                    <rect key="frame" x="249" y="15" width="56" height="56"/>
+                                                    <rect key="frame" x="304" y="15" width="56" height="56"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-h9-Nc6">
                                                             <rect key="frame" x="2" y="10" width="27" height="36"/>
@@ -619,7 +630,7 @@
                     </view>
                     <connections>
                         <outlet property="resultRecipeListTableView" destination="BYw-3v-n54" id="Kco-96-QJa"/>
-                        <segue destination="7ad-aF-v0v" kind="show" identifier="detailedRecipeSegue" id="HhN-hw-a6O"/>
+                        <segue destination="7ad-aF-v0v" kind="show" identifier="detailedRecipeSegue" id="maT-UJ-zni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npa-FD-ZQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -676,19 +687,19 @@
                                 <rect key="frame" x="142" y="416" width="37" height="37"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ev-HJ-xK8">
-                                <rect key="frame" x="251.5" y="79" width="53.5" height="53.5"/>
+                                <rect key="frame" x="249" y="79" width="56" height="56"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="xXE-F7-ok7">
-                                        <rect key="frame" x="2" y="10" width="26.5" height="33.5"/>
+                                        <rect key="frame" x="2" y="10" width="29" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohS-1b-Am5">
-                                                <rect key="frame" x="0.0" y="0.0" width="26.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="29" height="12"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bco-UQ-WsR">
-                                                <rect key="frame" x="0.0" y="23" width="26.5" height="10.5"/>
+                                                <rect key="frame" x="0.0" y="24" width="29" height="12"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -696,14 +707,14 @@
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-Nc-Qt2">
-                                        <rect key="frame" x="31.5" y="27.5" width="20" height="20"/>
+                                        <rect key="frame" x="34" y="30" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="R3k-6P-XeI"/>
                                             <constraint firstAttribute="width" constant="20" id="xSK-1A-Vb8"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rating" translatesAutoresizingMaskIntoConstraints="NO" id="Byn-Vm-GNR">
-                                        <rect key="frame" x="33.5" y="4" width="18" height="20"/>
+                                        <rect key="frame" x="36" y="4" width="18" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="ntM-9A-2DQ"/>
                                         </constraints>
@@ -739,25 +750,15 @@
                                     <action selector="share:" destination="7ad-aF-v0v" eventType="touchUpInside" id="GwR-1k-DyS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDn-t4-Ar1">
-                                <rect key="frame" x="259" y="149.5" width="46" height="32.5"/>
-                                <state key="normal" image="noFavorite"/>
-                                <connections>
-                                    <action selector="addToFavoriteList:" destination="7ad-aF-v0v" eventType="touchUpInside" id="Z1H-Ad-d3m"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sDn-t4-Ar1" firstAttribute="top" secondItem="3ev-HJ-xK8" secondAttribute="bottom" constant="17" id="38m-0Z-YPF"/>
                             <constraint firstItem="S0F-gg-6AF" firstAttribute="leading" secondItem="qT3-Tg-Km2" secondAttribute="leading" constant="20" id="8g6-ch-GIk"/>
                             <constraint firstItem="wMD-9T-P3Z" firstAttribute="leading" secondItem="qT3-Tg-Km2" secondAttribute="leading" constant="15" id="BbE-9g-KKQ"/>
                             <constraint firstItem="hHm-Cr-sF0" firstAttribute="top" secondItem="T5F-5m-baY" secondAttribute="bottom" id="Cwx-eQ-o2B"/>
                             <constraint firstItem="hHm-Cr-sF0" firstAttribute="leading" secondItem="qT3-Tg-Km2" secondAttribute="leading" id="F3X-xq-bBQ"/>
                             <constraint firstItem="ynT-kz-HlQ" firstAttribute="leading" secondItem="qT3-Tg-Km2" secondAttribute="leading" id="GRJ-fp-A8t"/>
-                            <constraint firstItem="hHm-Cr-sF0" firstAttribute="top" secondItem="sDn-t4-Ar1" secondAttribute="bottom" constant="15" id="GiH-rR-Y0g"/>
                             <constraint firstItem="hHm-Cr-sF0" firstAttribute="trailing" secondItem="qT3-Tg-Km2" secondAttribute="trailing" id="HYm-3D-5lX"/>
-                            <constraint firstItem="qT3-Tg-Km2" firstAttribute="trailing" secondItem="sDn-t4-Ar1" secondAttribute="trailing" constant="15" id="OSB-tB-ulz"/>
                             <constraint firstItem="qT3-Tg-Km2" firstAttribute="trailing" secondItem="3ev-HJ-xK8" secondAttribute="trailing" constant="15" id="Rwv-SP-mFj"/>
                             <constraint firstItem="3ev-HJ-xK8" firstAttribute="top" secondItem="qT3-Tg-Km2" secondAttribute="top" constant="15" id="VCQ-Q8-kAZ"/>
                             <constraint firstItem="S0F-gg-6AF" firstAttribute="top" secondItem="hHm-Cr-sF0" secondAttribute="bottom" constant="10" id="VFc-Z4-EXM"/>
@@ -765,7 +766,6 @@
                             <constraint firstItem="wMD-9T-P3Z" firstAttribute="top" secondItem="qT3-Tg-Km2" secondAttribute="top" constant="28" id="W49-iP-4J3"/>
                             <constraint firstItem="T5F-5m-baY" firstAttribute="leading" secondItem="qT3-Tg-Km2" secondAttribute="leading" id="Xqg-nK-fIw"/>
                             <constraint firstItem="qT3-Tg-Km2" firstAttribute="trailing" secondItem="A5m-VS-f8v" secondAttribute="trailing" constant="141" id="ary-E2-hkD"/>
-                            <constraint firstItem="sDn-t4-Ar1" firstAttribute="leading" secondItem="qT3-Tg-Km2" secondAttribute="leading" constant="259" id="bQO-gj-4UU"/>
                             <constraint firstItem="T5F-5m-baY" firstAttribute="trailing" secondItem="qT3-Tg-Km2" secondAttribute="trailing" id="dx0-Cj-wKV"/>
                             <constraint firstItem="qT3-Tg-Km2" firstAttribute="trailing" secondItem="S0F-gg-6AF" secondAttribute="trailing" constant="20" id="fM3-j2-TJg"/>
                             <constraint firstItem="hHm-Cr-sF0" firstAttribute="top" secondItem="ynT-kz-HlQ" secondAttribute="bottom" constant="5" id="fP8-1J-UFR"/>
@@ -777,6 +777,7 @@
                         <viewLayoutGuide key="safeArea" id="qT3-Tg-Km2"/>
                         <connections>
                             <outlet property="activityIndicator" destination="A5m-VS-f8v" id="z1V-gI-d8l"/>
+                            <outlet property="buttonTest" destination="QMu-e3-Bqc" id="DP9-E0-kFq"/>
                             <outlet property="detailedRecipeBackgroundImageView" destination="T5F-5m-baY" id="9eB-6S-jZa"/>
                             <outlet property="detailedRecipeDescriptionTextView" destination="hHm-Cr-sF0" id="pKM-n8-t2D"/>
                             <outlet property="detailedRecipeNameLabel" destination="ynT-kz-HlQ" id="Nri-3u-4am"/>
@@ -787,10 +788,20 @@
                         </connections>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="msQ-OA-112">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="ZcR-Gm-GXX">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QMu-e3-Bqc">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="testFavoriteFunction:" destination="7ad-aF-v0v" eventType="touchUpInside" id="rXH-xw-hdJ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailedRecipeView" destination="UsY-Ib-utl" id="pZ6-pO-so0"/>
-                        <outlet property="favoriteButton" destination="sDn-t4-Ar1" id="Rg9-VP-L12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n43-CL-cV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -820,7 +831,6 @@
     </scenes>
     <resources>
         <image name="favoriteIcon" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="noFavorite" width="51.200000762939453" height="51.200000762939453"/>
         <image name="rating" width="409.60000610351562" height="409.60000610351562"/>
         <image name="searchIcon" width="51.200000762939453" height="51.200000762939453"/>
         <image name="share" width="51.200000762939453" height="51.200000762939453"/>

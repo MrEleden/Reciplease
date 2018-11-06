@@ -46,9 +46,11 @@ class ResultRecipesListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailedRecipeSegue" {
-            let detailedRecipesVC = segue.destination as! DetailedRecipesViewController
+        if segue.identifier == "detailedRecipeSegue",
+            let detailedRecipesVC = segue.destination as? DetailedRecipesViewController, let indexPath = self.resultRecipeListTableView.indexPathForSelectedRow {
+            let selectedRecipe = matchingRecipes[indexPath.row]
             detailedRecipesVC.detailedRecipe = detailedRecipe
+            detailedRecipesVC.matchingRecipe = selectedRecipe
         }
     }
 }

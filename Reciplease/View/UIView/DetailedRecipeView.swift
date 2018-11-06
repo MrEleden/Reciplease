@@ -19,6 +19,7 @@ class DetailedRecipeView: UIView {
     @IBOutlet weak var getDirectionsButton: UIButton!
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var buttonTest: UIButton!
     
     //MARK: - Methods
     private func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {

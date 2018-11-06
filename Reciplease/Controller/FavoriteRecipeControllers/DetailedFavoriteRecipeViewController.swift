@@ -21,7 +21,7 @@ class DetailedFavoriteRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailedFavoriteRecipeView.toggleActivityIndicator(shown: false)
-        setupNavigationBarItemTintColor()
+        setupNavigationBarItem()
         setDetailedFavoriteRecipeUI()
     }
     
@@ -41,8 +41,7 @@ class DetailedFavoriteRecipeViewController: UIViewController {
     }
     
     private func setDetailedFavoriteRecipeUI() {
-        
-        detailedFavoriteRecipeView.detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: detailedFavoriteRecipe.recipeName!, detailedFavoriteRecipeDetails: self.convertDetailedFavoriteRecipeIngredients(detailedFavoriteRecipeIngredients: detailedFavoriteRecipe.ingredients!), rating: Int(detailedFavoriteRecipe.rating), timer: Int(detailedFavoriteRecipe.totalTimeInSeconds / 60), backgroundDetailedFavoriteRecipeImageURL: detailedFavoriteRecipe.image!)
+        detailedFavoriteRecipeView.detailedFavoriteRecipeConfigure(detailedFavoriteRecipeName: detailedFavoriteRecipe.recipeName!, detailedFavoriteRecipeDetails: self.convertDetailedFavoriteRecipeIngredients(detailedFavoriteRecipeIngredients: detailedFavoriteRecipe.detailedIngredients!), rating: Int(detailedFavoriteRecipe.rating), timer: Int(detailedFavoriteRecipe.totalTimeInSeconds / 60), backgroundDetailedFavoriteRecipeImageURL: detailedFavoriteRecipe.image!)
     }
     
     private func convertDetailedFavoriteRecipeIngredients(detailedFavoriteRecipeIngredients: String) -> String {
@@ -63,7 +62,8 @@ class DetailedFavoriteRecipeViewController: UIViewController {
         }
     }
     
-    private func setupNavigationBarItemTintColor() {
+    private func setupNavigationBarItem() {
+        navigationItem.title = "Detailed Favorite Recipe"
         navigationController?.navigationBar.tintColor = UIColor.black
     }
 }

@@ -15,55 +15,26 @@ class DetailedRecipesViewController: UIViewController {
     
     //MARK: - Properties
     var detailedRecipe: DetailedRecipe!
+    var matchingRecipe: Matches!
     var favoriteRecipe = FavoriteRecipe.all
-    let defaults = UserDefaults.standard
-    var noFavoriteButtonImage = UIImage(named: "favorite")
-    var favoriteButtonImage = UIImage(named: "noFavorite")
+    var noFavoriteButtonImage = UIImage(named: "noFavorite")
+    var favoriteButtonImage = UIImage(named: "favorite")
     var isFavorite = false
-    var buttonFavoriteTapped: Bool!
-
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Detailed Recipe"
         detailedRecipeView.toggleActivityIndicator(shown: false)
-        setupNavigationRightBarButtonItem()
+        detailedRecipeView.buttonTest.setImage(noFavoriteButtonImage, for: .normal)
         setDetailedRecipeUI()
-    }
-
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        //buttonFavoriteTapped = defaults.bool(forKey: "favoriterecipe")
-//        if buttonFavoriteTapped == true {
-//            buttonFavoriteTapped = false
-//            favoriteButton.setImage(noFavoriteButtonImage, for: .normal)
-//        } else {
-//            buttonFavoriteTapped = true
-//            favoriteButton.setImage(favoriteButtonImage, for: .normal)
-//        }
-
-        
-        
-        
-        
     }
     
     //MARK: - Actions
-    
-
-    @IBOutlet weak var favoriteButton: UIButton!
-    
-    @IBAction func addToFavoriteList(_ sender: UIButton) {
+    @IBAction func testFavoriteFunction(_ sender: UIButton) {
+        detailedRecipeView.buttonTest.setImage(favoriteButtonImage, for: .normal)
         saveFavoriteRecipe()
-        //defaults.set(buttonFavoriteTapped, forKey: "favoriterecipe")
     }
-    
-    
-    
-    
-    
     
     @IBAction func getDirections(_ sender: Any) {
         getDirectionsFromSourceRecipeURL()
@@ -78,47 +49,7 @@ class DetailedRecipesViewController: UIViewController {
         let activityController = UIActivityViewController(activityItems: ["Can you cook that for me?", detailedRecipe.source.sourceRecipeUrl], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
-    
-    @objc private func addToFavorite() {
-        let noFavoriteButton = UIBarButtonItem(image: noFavoriteButtonImage, style: .plain, target: self, action: #selector(removeFromFavorite))
-        navigationItem.rightBarButtonItem = noFavoriteButton
-        saveFavoriteRecipe()
-    }
 
-    @objc private func removeFromFavorite() {
-        let favoriteButton = UIBarButtonItem(image: favoriteButtonImage, style: .plain, target: self, action: #selector(addToFavorite))
-        navigationItem.rightBarButtonItem = favoriteButton
-        
-        
-        
-        
-        removeFavoriteRecipe()
-    }
-
-    private func setupNavigationRightBarButtonItem() {
-       defaults.set(isFavorite, forKey: "favoriterecipe")
-        isFavorite = defaults.bool(forKey: "favoriterecipe")
-        if isFavorite == true {
-            addToFavorite()
-            
-          
-                isFavorite = false
-                navigationItem.rightBarButtonItem?.image = noFavoriteButtonImage
-          
-            
-            
-        } else {
-            removeFromFavorite()
-         
-                isFavorite = true
-                navigationItem.rightBarButtonItem?.image = favoriteButtonImage
-            
-            
-            
-            
-        }
-    }
-    
     private func getDirectionsFromSourceRecipeURL() {
         if let detailedRecipe = detailedRecipe {
             guard let url = URL(string: detailedRecipe.source.sourceRecipeUrl) else { return }
@@ -136,20 +67,16 @@ class DetailedRecipesViewController: UIViewController {
         let favoritesRecipes = FavoriteRecipe(context: AppDelegate.viewContext)
         favoritesRecipes.image = detailedRecipe.images[0].hostedLargeUrl
         favoritesRecipes.recipeName = detailedRecipe.name
-        favoritesRecipes.ingredients = convertIngredientsArrayIntoString(ingredients: detailedRecipe.ingredientLines)
+        favoritesRecipes.ingredients = convertIngredientsArrayIntoString(ingredients: matchingRecipe.ingredients)
+        favoritesRecipes.detailedIngredients = convertIngredientsArrayIntoString(ingredients: detailedRecipe.ingredientLines)
         favoritesRecipes.rating = Int16(detailedRecipe.rating)
         favoritesRecipes.totalTimeInSeconds = Int16(detailedRecipe.totalTimeInSeconds)
         favoritesRecipes.sourceUrl = detailedRecipe.source.sourceRecipeUrl
         saveContext()
     }
-    
+
     private func removeFavoriteRecipe() {
         //TODO
-    }
-    
-    private func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
-        let ingredientsArray = ingredients.map{ String($0) }
-        return ingredientsArray.joined(separator: ", ")
     }
     
     private func saveContext() {
@@ -158,6 +85,11 @@ class DetailedRecipesViewController: UIViewController {
         } catch let error as NSError {
             print(error)
         }
+    }
+    
+    private func convertIngredientsArrayIntoString(ingredients: [String]) -> String {
+        let ingredientsArray = ingredients.map{ String($0) }
+        return ingredientsArray.joined(separator: ", ")
     }
 }
 
