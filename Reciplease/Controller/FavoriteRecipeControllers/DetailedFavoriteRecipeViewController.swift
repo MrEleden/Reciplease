@@ -30,6 +30,10 @@ class DetailedFavoriteRecipeViewController: UIViewController {
         getDirectionsFromSourceRecipeURL()
     }
     
+    @IBAction func favoriteFunctionnality(_ sender: UIButton) {
+        //TODO
+    }
+    
     @IBAction func share(_ sender: UIButton) {
         sharingRecipeButtonTapped()
     }

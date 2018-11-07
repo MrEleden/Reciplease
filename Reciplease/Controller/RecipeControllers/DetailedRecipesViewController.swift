@@ -19,21 +19,24 @@ class DetailedRecipesViewController: UIViewController {
     var favoriteRecipe = FavoriteRecipe.all
     var noFavoriteButtonImage = UIImage(named: "noFavorite")
     var favoriteButtonImage = UIImage(named: "favorite")
-    var isFavorite = false
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Detailed Recipe"
-        detailedRecipeView.toggleActivityIndicator(shown: false)
-        detailedRecipeView.buttonTest.setImage(noFavoriteButtonImage, for: .normal)
+        setNavigationItemTitle()
         setDetailedRecipeUI()
+        detailedRecipeView.toggleActivityIndicator(shown: false)
+        detailedRecipeView.favoriteButton.setImage(noFavoriteButtonImage, for: .normal)
+        detailedRecipeView.favoriteButton.setImage(favoriteButtonImage, for: .selected)
+        detailedRecipeView.favoriteButton.isSelected = UserDefaults.standard.bool(forKey: "isFavorited")
     }
     
     //MARK: - Actions
     @IBAction func testFavoriteFunction(_ sender: UIButton) {
-        detailedRecipeView.buttonTest.setImage(favoriteButtonImage, for: .normal)
+        sender.isSelected = !sender.isSelected
+        UserDefaults.standard.set(sender.isSelected, forKey: "isFavorited")
         saveFavoriteRecipe()
+        setTabBarControllerItemBadgeValue()
     }
     
     @IBAction func getDirections(_ sender: Any) {
@@ -45,6 +48,16 @@ class DetailedRecipesViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func setNavigationItemTitle() {
+        navigationItem.title = "Detailed Recipe"
+    }
+    
+    private func setTabBarControllerItemBadgeValue() {
+        guard let tabItems = tabBarController?.tabBar.items else { return }
+        let tabItem = tabItems[1]
+        tabItem.badgeValue = "New"
+    }
+    
     private func sharingRecipeButtonTapped() {
         let activityController = UIActivityViewController(activityItems: ["Can you cook that for me?", detailedRecipe.source.sourceRecipeUrl], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
@@ -79,7 +92,7 @@ class DetailedRecipesViewController: UIViewController {
         //TODO
     }
     
-    private func saveContext() {
+    func saveContext() {
         do {
             try AppDelegate.viewContext.save()
         } catch let error as NSError {

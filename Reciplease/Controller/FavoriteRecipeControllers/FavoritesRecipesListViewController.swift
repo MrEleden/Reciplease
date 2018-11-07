@@ -19,18 +19,25 @@ class FavoritesRecipesListViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setFavoritesRecipesTableView()
+        setNavigationBarTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        setTabBarControllerItemBadgeValue()
         favoritesRecipes = FavoriteRecipe.all
         favoritesRecipesListTableView.reloadData()
     }
     
     //MARK: - Methods
-    private func setFavoritesRecipesTableView() {
+    private func setNavigationBarTitle() {
         self.navigationItem.title = "List of Favorites Recipes"
+    }
+    
+    private func setTabBarControllerItemBadgeValue() {
+        guard let tabItems = tabBarController?.tabBar.items else { return }
+        let tabItem = tabItems[1]
+        tabItem.badgeValue = nil
     }
     
     private func saveContext() {

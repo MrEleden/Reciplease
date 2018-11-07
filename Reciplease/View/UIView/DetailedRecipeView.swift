@@ -17,9 +17,9 @@ class DetailedRecipeView: UIView {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var detailedRecipeDescriptionTextView: UITextView!
     @IBOutlet weak var getDirectionsButton: UIButton!
-    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var littleBlackView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var buttonTest: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     //MARK: - Methods
     private func convertIntoStringDetailedRecipe(detailedRecipe: [String]) -> String {
@@ -41,7 +41,7 @@ class DetailedRecipeView: UIView {
         ratingLabel.text = String(rating)
         timerLabel.text = String(timer) + " min"
         detailedRecipeBackgroundImageView.load(imageURL: backgroundDetailedRecipeImageURL)
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.init(red: 222/255, green: 225/255, blue: 227/255, alpha: 1).cgColor
+        littleBlackView.layer.borderWidth = 1
+        littleBlackView.layer.borderColor = UIColor.init(red: 222/255, green: 225/255, blue: 227/255, alpha: 1).cgColor
     }
 }

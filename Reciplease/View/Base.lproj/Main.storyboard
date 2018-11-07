@@ -162,22 +162,26 @@
                         <connections>
                             <outlet property="activityIndicator" destination="euB-Au-fUY" id="iS1-g4-A1x"/>
                             <outlet property="backgroundDetailedFavoriteRecipeImageView" destination="aUo-oR-KNJ" id="dft-Kr-ciA"/>
-                            <outlet property="blackView" destination="Chc-92-nEh" id="8wX-gb-P25"/>
                             <outlet property="detailedFavoriteRecipeDescription" destination="5es-jn-q8W" id="Zej-ay-SXI"/>
                             <outlet property="detailedFavoriteRecipeNameLabel" destination="Adc-UD-xPV" id="qcw-It-2L5"/>
                             <outlet property="detailedFavoriteRecipeRatingLabel" destination="Gkl-zc-Spf" id="TC0-de-wgl"/>
                             <outlet property="detailedFavoriteRecipeTimerLabel" destination="kEg-x0-r7q" id="EzG-8Z-GfU"/>
+                            <outlet property="favoriteButton" destination="bQF-cV-uAK" id="Kxh-qj-aFb"/>
                             <outlet property="getDirectionsButton" destination="5OM-vh-wBn" id="J00-FI-QjG"/>
+                            <outlet property="littleBlackView" destination="Chc-92-nEh" id="v7g-et-mbu"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="HJD-ry-1e0">
                         <barButtonItem key="rightBarButtonItem" style="done" id="JRd-hj-rhC">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bQF-cV-uAK">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bQF-cV-uAK">
+                                <rect key="frame" x="253" y="0.0" width="51" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
+                                <state key="normal" image="noFavorite">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="favoriteFunctionnality:" destination="Xtx-gh-KC9" eventType="touchUpInside" id="dOx-Jx-74J"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -226,7 +230,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vvm-WK-gg6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcL-HB-KZR">
                                                     <rect key="frame" x="10" y="65" width="47.5" height="26.5"/>
@@ -241,7 +245,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Daq-sH-YSV">
-                                                    <rect key="frame" x="304" y="15" width="56" height="56"/>
+                                                    <rect key="frame" x="249" y="15" width="56" height="56"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="IV4-Rh-bYL">
                                                             <rect key="frame" x="2" y="10" width="29" height="36"/>
@@ -518,10 +522,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="trH-Ys-8ZN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdN-vh-qCg">
-                                                    <rect key="frame" x="304" y="15" width="56" height="56"/>
+                                                    <rect key="frame" x="249" y="15" width="56" height="56"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-h9-Nc6">
                                                             <rect key="frame" x="2" y="10" width="27" height="36"/>
@@ -777,22 +781,24 @@
                         <viewLayoutGuide key="safeArea" id="qT3-Tg-Km2"/>
                         <connections>
                             <outlet property="activityIndicator" destination="A5m-VS-f8v" id="z1V-gI-d8l"/>
-                            <outlet property="buttonTest" destination="QMu-e3-Bqc" id="DP9-E0-kFq"/>
                             <outlet property="detailedRecipeBackgroundImageView" destination="T5F-5m-baY" id="9eB-6S-jZa"/>
                             <outlet property="detailedRecipeDescriptionTextView" destination="hHm-Cr-sF0" id="pKM-n8-t2D"/>
                             <outlet property="detailedRecipeNameLabel" destination="ynT-kz-HlQ" id="Nri-3u-4am"/>
+                            <outlet property="favoriteButton" destination="QMu-e3-Bqc" id="9cN-0Q-ADb"/>
                             <outlet property="getDirectionsButton" destination="S0F-gg-6AF" id="h0q-md-rKh"/>
+                            <outlet property="littleBlackView" destination="3ev-HJ-xK8" id="fnL-4s-ndg"/>
                             <outlet property="ratingLabel" destination="ohS-1b-Am5" id="m6X-Bb-jKD"/>
                             <outlet property="timerLabel" destination="bco-UQ-WsR" id="YmT-Wt-IZj"/>
-                            <outlet property="view" destination="3ev-HJ-xK8" id="FDU-dR-h7U"/>
                         </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="msQ-OA-112">
                         <barButtonItem key="rightBarButtonItem" style="done" id="ZcR-Gm-GXX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QMu-e3-Bqc">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QMu-e3-Bqc">
+                                <rect key="frame" x="253" y="0.0" width="51" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" image="noFavorite"/>
                                 <connections>
                                     <action selector="testFavoriteFunction:" destination="7ad-aF-v0v" eventType="touchUpInside" id="rXH-xw-hdJ"/>
                                 </connections>
@@ -831,6 +837,7 @@
     </scenes>
     <resources>
         <image name="favoriteIcon" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="noFavorite" width="51.200000762939453" height="51.200000762939453"/>
         <image name="rating" width="409.60000610351562" height="409.60000610351562"/>
         <image name="searchIcon" width="51.200000762939453" height="51.200000762939453"/>
         <image name="share" width="51.200000762939453" height="51.200000762939453"/>

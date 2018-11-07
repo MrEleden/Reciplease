@@ -18,7 +18,8 @@ class DetailedFavoriteRecipeView: UIView {
     @IBOutlet weak var detailedFavoriteRecipeDescription: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var getDirectionsButton: UIButton!
-    @IBOutlet weak var blackView: UIView!
+    @IBOutlet weak var littleBlackView: UIView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     //MARK: - Methods
     func toggleActivityIndicator(shown: Bool) {
@@ -32,7 +33,7 @@ class DetailedFavoriteRecipeView: UIView {
         detailedFavoriteRecipeRatingLabel.text = String(rating)
         detailedFavoriteRecipeTimerLabel.text = String(timer) + " min"
         backgroundDetailedFavoriteRecipeImageView.load(imageURL: backgroundDetailedFavoriteRecipeImageURL)
-        blackView.layer.borderWidth = 1
-        blackView.layer.borderColor = UIColor.init(red: 222/255, green: 225/255, blue: 227/255, alpha: 1).cgColor
+        littleBlackView.layer.borderWidth = 1
+        littleBlackView.layer.borderColor = UIColor.init(red: 222/255, green: 225/255, blue: 227/255, alpha: 1).cgColor
     }
 }
