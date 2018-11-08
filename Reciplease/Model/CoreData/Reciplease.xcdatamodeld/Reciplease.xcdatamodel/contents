@@ -5,13 +5,12 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ingredients" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="recipeName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sourceUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalTimeInSeconds" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FavoriteRecipe" positionX="-18" positionY="27" width="128" height="180"/>
+        <element name="FavoriteRecipe" positionX="-6800.89453125" positionY="-3318.9609375" width="128" height="163"/>
     </elements>
 </model>

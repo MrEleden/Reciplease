@@ -19,6 +19,7 @@ class DetailedRecipesViewController: UIViewController {
     var favoriteRecipe = FavoriteRecipe.all
     var noFavoriteButtonImage = UIImage(named: "noFavorite")
     var favoriteButtonImage = UIImage(named: "favorite")
+    var isFavorite = false
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -26,17 +27,19 @@ class DetailedRecipesViewController: UIViewController {
         setNavigationItemTitle()
         setDetailedRecipeUI()
         detailedRecipeView.toggleActivityIndicator(shown: false)
-        detailedRecipeView.favoriteButton.setImage(noFavoriteButtonImage, for: .normal)
-        detailedRecipeView.favoriteButton.setImage(favoriteButtonImage, for: .selected)
-        detailedRecipeView.favoriteButton.isSelected = UserDefaults.standard.bool(forKey: "isFavorited")
     }
     
     //MARK: - Actions
-    @IBAction func testFavoriteFunction(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        UserDefaults.standard.set(sender.isSelected, forKey: "isFavorited")
-        saveFavoriteRecipe()
-        setTabBarControllerItemBadgeValue()
+    @IBAction func favoriteFunctionality(_ sender: UIButton) {
+        isFavorite = !isFavorite
+        if isFavorite {
+            detailedRecipeView.favoriteButton.setImage(favoriteButtonImage, for: .normal)
+            setTabBarControllerItemBadgeValue(string: "New")
+            saveFavoriteRecipe()
+        } else {
+            setTabBarControllerItemBadgeValue(string: "")
+            detailedRecipeView.favoriteButton.setImage(noFavoriteButtonImage, for: .normal)
+        }
     }
     
     @IBAction func getDirections(_ sender: Any) {
@@ -52,10 +55,10 @@ class DetailedRecipesViewController: UIViewController {
         navigationItem.title = "Detailed Recipe"
     }
     
-    private func setTabBarControllerItemBadgeValue() {
+    private func setTabBarControllerItemBadgeValue(string: String) {
         guard let tabItems = tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[1]
-        tabItem.badgeValue = "New"
+        tabItem.badgeValue = string
     }
     
     private func sharingRecipeButtonTapped() {

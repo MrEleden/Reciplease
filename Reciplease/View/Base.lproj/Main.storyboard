@@ -176,11 +176,11 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bQF-cV-uAK">
                                 <rect key="frame" x="253" y="0.0" width="51" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="noFavorite">
+                                <state key="normal" image="favorite">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="favoriteFunctionnality:" destination="Xtx-gh-KC9" eventType="touchUpInside" id="dOx-Jx-74J"/>
+                                    <action selector="favoriteFunctionality:" destination="Xtx-gh-KC9" eventType="touchUpInside" id="CcR-Gp-vYb"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -800,7 +800,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="noFavorite"/>
                                 <connections>
-                                    <action selector="testFavoriteFunction:" destination="7ad-aF-v0v" eventType="touchUpInside" id="rXH-xw-hdJ"/>
+                                    <action selector="favoriteFunctionality:" destination="7ad-aF-v0v" eventType="touchUpInside" id="Qw6-jQ-f99"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -836,6 +836,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="favorite" width="51.200000762939453" height="51.200000762939453"/>
         <image name="favoriteIcon" width="51.200000762939453" height="51.200000762939453"/>
         <image name="noFavorite" width="51.200000762939453" height="51.200000762939453"/>
         <image name="rating" width="409.60000610351562" height="409.60000610351562"/>
